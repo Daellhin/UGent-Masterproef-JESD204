@@ -6,8 +6,8 @@
    "Color Coded_ScaleFactor":"1.07323",
    "Color Coded_TopLeft":"-132,-399",
    "Default View_Layers":"/local_clock_generator_frame_clk:true|/clock_generator_0_device_clk:true|/source_clk_1:true|",
-   "Default View_ScaleFactor":"1.27347",
-   "Default View_TopLeft":"-360,-36",
+   "Default View_ScaleFactor":"1.16589",
+   "Default View_TopLeft":"658,-98",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "ExpandedHierarchyInLayout":"",
@@ -24,49 +24,60 @@
    "commentid":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port port-id_SYNC -pg 1 -lvl 0 -x -300 -y 190 -defaultsOSRD
-preplace port port-id_scramble_enable -pg 1 -lvl 0 -x -300 -y 290 -defaultsOSRD
-preplace port port-id_rst -pg 1 -lvl 0 -x -300 -y 90 -defaultsOSRD
-preplace port port-id_source_clk -pg 1 -lvl 0 -x -300 -y -10 -defaultsOSRD
-preplace port port-id_serial_data_0 -pg 1 -lvl 7 -x 2150 -y 320 -defaultsOSRD
-preplace port port-id_sample_clk_0 -pg 1 -lvl 7 -x 2150 -y -50 -defaultsOSRD
-preplace portBus samples_0 -pg 1 -lvl 0 -x -300 -y 360 -defaultsOSRD
-preplace inst synchroniser -pg 1 -lvl 3 -x 500 -y 190 -defaultsOSRD
-preplace inst clock_generator -pg 1 -lvl 1 -x -120 -y -10 -defaultsOSRD
-preplace inst local_clock_generator -pg 1 -lvl 2 -x 190 -y -10 -defaultsOSRD
-preplace inst frame_mapper -pg 1 -lvl 1 -x -120 -y 370 -defaultsOSRD
-preplace inst scrambler -pg 1 -lvl 2 -x 190 -y 360 -defaultsOSRD
-preplace inst MUX_octets -pg 1 -lvl 4 -x 840 -y 350 -defaultsOSRD
-preplace inst gigabit_transceiver -pg 1 -lvl 6 -x 1370 -y 320 -defaultsOSRD
-preplace inst alignment_substititution -pg 1 -lvl 3 -x 500 -y 360 -defaultsOSRD
-preplace inst MUX_control -pg 1 -lvl 4 -x 840 -y 490 -defaultsOSRD
-preplace inst encoder_8b10b -pg 1 -lvl 5 -x 1100 -y 320 -defaultsOSRD
-preplace netloc SYNC_1 1 0 3 NJ 190 N 190 N
-preplace netloc alignment_substititution_control 1 3 1 640J 370n
-preplace netloc alignment_substititution_octet_out 1 3 1 N 350
-preplace netloc clock_generator_0_device_clk 1 1 1 N -20
-preplace netloc clock_generator_0_sysref 1 1 1 N 0
-preplace netloc frame_mapper_octet_out 1 1 1 N 370
-preplace netloc gigabit_transceiver_serial_data 1 6 1 N 320
-preplace netloc local_clock_generator_bit_clk 1 2 4 NJ 10 NJ 10 NJ 10 1230
-preplace netloc local_clock_generator_character_clk 1 2 1 340 -10n
-preplace netloc local_clock_generator_frame_clk 1 0 5 -270 270 N 270 330 270 N 270 940
-preplace netloc local_clock_generator_sample_clk 1 2 5 NJ -50 NJ -50 NJ -50 NJ -50 NJ
-preplace netloc samples_0_1 1 0 1 N 360
-preplace netloc scramble_enable_1 1 0 3 NJ 290 50 290 330
-preplace netloc scrambler_octet_out 1 2 1 N 360
-preplace netloc source_clk_1 1 0 1 NJ -10
-preplace netloc synchroniser_0_character 1 3 1 740 180n
-preplace netloc synchroniser_0_synchronised 1 3 1 730 200n
-preplace netloc encoder_0_encoded_8b10b 1 5 1 1230 320n
-preplace netloc MUX_C 1 4 1 N 350
-preplace netloc mux_0_C 1 4 1 940 330n
-preplace netloc rst_1 1 0 5 NJ 90 NJ 90 NJ 90 NJ 90 950
-levelinfo -pg 1 -300 -120 190 500 840 1100 1370 2150
-pagesize -pg 1 -db -bbox -sgen -460 -450 2970 650
+preplace port port-id_SYNC -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
+preplace port port-id_scramble_enable -pg 1 -lvl 0 -x 0 -y 440 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x 0 -y 410 -defaultsOSRD
+preplace port port-id_source_clk -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port port-id_serial_data_0 -pg 1 -lvl 7 -x 1910 -y 330 -defaultsOSRD
+preplace port port-id_sample_clk_0 -pg 1 -lvl 7 -x 1910 -y 70 -defaultsOSRD
+preplace portBus sample -pg 1 -lvl 0 -x 0 -y 590 -defaultsOSRD
+preplace inst clock_generator -pg 1 -lvl 1 -x 180 -y 120 -defaultsOSRD
+preplace inst local_clock_generator -pg 1 -lvl 2 -x 510 -y 120 -defaultsOSRD
+preplace inst scrambler -pg 1 -lvl 2 -x 510 -y 550 -defaultsOSRD
+preplace inst gigabit_transceiver -pg 1 -lvl 6 -x 1730 -y 200 -defaultsOSRD
+preplace inst alignment_substititution -pg 1 -lvl 3 -x 870 -y 550 -defaultsOSRD
+preplace inst transmitter_state -pg 1 -lvl 2 -x 510 -y 390 -defaultsOSRD
+preplace inst ILAS_generator -pg 1 -lvl 3 -x 870 -y 400 -defaultsOSRD
+preplace inst CGS_Generator_0 -pg 1 -lvl 3 -x 870 -y 250 -defaultsOSRD
+preplace inst MUX_control -pg 1 -lvl 4 -x 1160 -y 540 -defaultsOSRD
+preplace inst MUX_octets -pg 1 -lvl 4 -x 1160 -y 380 -defaultsOSRD
+preplace inst encoder_wrapper_0 -pg 1 -lvl 5 -x 1430 -y 360 -defaultsOSRD
+preplace inst single_ADC_frame_map_0 -pg 1 -lvl 1 -x 180 -y 560 -defaultsOSRD
+preplace inst sync_decoder_0 -pg 1 -lvl 1 -x 180 -y 360 -defaultsOSRD
+preplace netloc CGS_Generator_0_control 1 3 1 1030 250n
+preplace netloc CGS_Generator_0_octet_out 1 3 1 1060 230n
+preplace netloc ILAS_generator_ILA_last 1 1 3 350 230 670J 160 1010
+preplace netloc ILAS_generator_control 1 3 1 1020 400n
+preplace netloc ILAS_generator_octet_out 1 3 1 1020 370n
+preplace netloc MUX_control_D 1 4 1 1270 400n
+preplace netloc MUX_octets_D 1 4 1 N 380
+preplace netloc SYNC_1 1 0 1 NJ 380
+preplace netloc alignment_substititution_control 1 3 1 1060 550n
+preplace netloc alignment_substititution_octet_out 1 3 1 1060 390n
+preplace netloc clock_generator_0_device_clk 1 1 1 N 110
+preplace netloc clock_generator_0_sysref 1 1 1 N 130
+preplace netloc encoder_wrapper_0_symbol 1 5 1 1570 210n
+preplace netloc gigabit_transceiver_serial_data 1 6 1 1860 200n
+preplace netloc local_clock_generator_LMF_last 1 1 2 360 240 660
+preplace netloc local_clock_generator_bit_clk 1 2 4 NJ 130 NJ 130 NJ 130 1570
+preplace netloc local_clock_generator_character_clk 1 0 5 50 270 340 270 680 120 N 120 1270
+preplace netloc local_clock_generator_frame_clk 1 0 3 40 260 N 260 710
+preplace netloc local_clock_generator_sample_clk 1 0 7 30 10 N 10 710J 70 NJ 70 NJ 70 N 70 NJ
+preplace netloc rst_1 1 0 5 20J 280 330 280 730 150 N 150 1260
+preplace netloc sample_1 1 0 1 N 590
+preplace netloc scramble_enable_1 1 0 3 NJ 440 320 620 660
+preplace netloc scrambler_octet_out 1 2 1 N 550
+preplace netloc single_ADC_frame_map_0_octet 1 1 1 N 560
+preplace netloc source_clk_1 1 0 1 NJ 120
+preplace netloc sync_decoder_0_sync_request 1 1 1 N 360
+preplace netloc transmitter_state_0_enable_ILAS 1 2 1 690 390n
+preplace netloc transmitter_state_enlable_CGS 1 2 1 720 260n
+preplace netloc transmitter_state_state_out 1 2 2 700J 170 1050
+levelinfo -pg 1 0 180 510 870 1160 1430 1730 1910
+pagesize -pg 1 -db -bbox -sgen -160 0 2050 880
 "
 }
 {
-   """""""da_board_cnt""""""":"2",
-   """""""da_clkrst_cnt""""""":"1"
+   """""""""""""""""""""da_board_cnt""""""""""""""""""""":"2",
+   """""""""""""""""""""da_clkrst_cnt""""""""""""""""""""":"1"
 }

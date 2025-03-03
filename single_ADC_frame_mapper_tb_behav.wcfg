@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="single_ADC_frame_mapper_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="single_ADC_frame_mapper_tb" />
+            <top_module name="utils_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="197.001 ns"></ZoomEndTime>
+      <Cursor1Time time="60.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/sample_clk" type="logic">
+      <obj_property name="ElementShortName">sample_clk</obj_property>
+      <obj_property name="ObjectShortName">sample_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/character_clk" type="logic">
+      <obj_property name="ElementShortName">character_clk</obj_property>
+      <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/sample" type="array">
+      <obj_property name="ElementShortName">sample[11:0]</obj_property>
+      <obj_property name="ObjectShortName">sample[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/DUT/sample_pointer" type="other">
+      <obj_property name="ElementShortName">sample_pointer</obj_property>
+      <obj_property name="ObjectShortName">sample_pointer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/octet" type="array">
+      <obj_property name="ElementShortName">octet[7:0]</obj_property>
+      <obj_property name="ObjectShortName">octet[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/DUT/octet_pointer" type="other">
+      <obj_property name="ElementShortName">octet_pointer</obj_property>
+      <obj_property name="ObjectShortName">octet_pointer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/DUT/sample_buffer" type="array">
+      <obj_property name="ElementShortName">sample_buffer[47:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_buffer[47:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

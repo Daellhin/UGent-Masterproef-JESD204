@@ -1,1 +1,1 @@
-vopt -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L util_vector_logic_v2_0_4 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.transmitter xil_defaultlib.glbl -o transmitter_opt
+vopt -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L secureip -work xil_defaultlib xil_defaultlib.transmitter -o transmitter_opt

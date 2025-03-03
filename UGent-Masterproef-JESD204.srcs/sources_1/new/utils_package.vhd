@@ -6,12 +6,22 @@ use std.textio.all;
 package utils_package is
     type outputs_t is array (natural range <>, natural range <>) of std_logic;
     
+    function reverse(input: std_logic_vector) return std_logic_vector;
     procedure generate_clk(signal clk: out std_logic; constant period : in time; constant start_delay: in time:= 0ps);
     procedure read_binary_from_file(constant file_name: in string; signal data: out std_logic_vector; signal finished: out boolean; constant delay : in time;  constant fist_delay_offset : in time := 1ps);
     procedure println(file file_handle : text; constant string_to_print: in string);
 end package;
 
 package body utils_package is
+    function reverse(input: std_logic_vector) return std_logic_vector is
+        variable result: std_logic_vector(input'range);
+    begin
+        for i in input'range loop
+            result(i) := input(input'left + input'right - i);
+        end loop;
+        return result;
+    end function;
+
     procedure generate_clk(
         signal clk: out std_logic;
         constant period : in time;

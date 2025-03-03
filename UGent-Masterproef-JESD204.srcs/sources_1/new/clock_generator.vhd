@@ -7,7 +7,7 @@ entity clock_generator is
         device_clk : out STD_LOGIC;
         sysref : out STD_LOGIC
     );
-end clock_generator;
+end entity;
 
 architecture Behavioral of clock_generator is
 

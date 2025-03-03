@@ -9,9 +9,10 @@ entity local_clock_generator is
         frame_clk : out STD_LOGIC;
         character_clk : out STD_LOGIC;
         bit_clk : out STD_LOGIC;
-        LMF_clk : out STD_LOGIC
+        LMF_clk : out STD_LOGIC;
+        LMF_last: out STD_LOGIC
     );
-end local_clock_generator;
+end entity;
 
 architecture Behavioral of local_clock_generator is
 

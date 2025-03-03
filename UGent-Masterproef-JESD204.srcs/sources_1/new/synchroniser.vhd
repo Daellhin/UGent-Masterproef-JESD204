@@ -7,7 +7,7 @@ entity synchroniser is
         octet : out STD_LOGIC_VECTOR (7 downto 0);
         synchronising : out std_logic
     );
-end synchroniser;
+end entity;
 
 architecture Behavioral of synchroniser is
 

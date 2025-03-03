@@ -6,23 +6,23 @@ library xil_defaultlib;
 use xil_defaultlib.utils_package.all;
 
 entity encoder_tb is
-end encoder_tb;
+end entity;
 
 architecture Behavioral of encoder_tb is
     -- Testbench signals
-    constant clk_period: time := 10ns;                      -- Period of the character clock
+    constant clk_period: time := 10ns;                        -- Period of the character clock
     signal data: STD_LOGIC_VECTOR((8+1+1+10+1+1)-1 downto 0); -- Data read line by line from input file
-    signal finished: boolean;                               -- Is test finished
-    signal exp_symbol: std_logic_vector(9 downto 0);        -- Expected symbol
-    signal exp_RD: std_logic;                               -- Ecpected RD
-    signal exp_invalid_control: std_logic;                  -- Ecpected Invalid control
+    signal finished: boolean;                                 -- Is test finished
+    signal exp_symbol: std_logic_vector(9 downto 0);          -- Expected symbol
+    signal exp_RD: std_logic;                                 -- Ecpected RD
+    signal exp_invalid_control: std_logic;                    -- Ecpected Invalid control
     
     -- Encoder signals
     -- Inputs
-    signal character_clk: std_logic;             -- Clock, encoder reads octet on rising edge converts it to symbol
-    signal rst: std_logic;                       -- Synchronus reset (Active High)
-    signal initial_RD: std_logic := '0';         -- RD value at start or after reset(0=-1) (1=+1). Used for testing
-    signal control: std_logic;                   -- Are control characters being sent (Active High)
+    signal character_clk: std_logic;            -- Clock, encoder reads octet on rising edge converts it to symbol
+    signal rst: std_logic;                      -- Synchronus reset (Active High)
+    signal initial_RD: std_logic := '0';        -- RD value at start or after reset(0=-1) (1=+1). Used for testing
+    signal control: std_logic;                  -- Are control characters being sent (Active High)
     signal octet: std_logic_vector(7 downto 0); -- 8 bit input (XXX XXXXX)
     -- Outputs
     signal symbol: std_logic_vector(9 downto 0); -- 10 bit output
@@ -30,7 +30,7 @@ architecture Behavioral of encoder_tb is
     signal invalid_control: std_logic;           -- High when control is active and non control octet is provided
 begin
     DUT: entity work.encoder port map(
-        character_clk, rst, initial_RD, control, octet, symbol, invalid_control, RD
+        character_clk, rst, initial_RD, octet, control, symbol, invalid_control, RD
     );
     
     -- Setup signals

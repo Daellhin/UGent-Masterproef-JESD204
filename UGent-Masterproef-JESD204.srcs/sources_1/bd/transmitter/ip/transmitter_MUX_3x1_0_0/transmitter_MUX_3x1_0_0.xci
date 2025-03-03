@@ -1,0 +1,52 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "transmitter_MUX_3x1_0_0",
+    "cell_name": "MUX_control",
+    "component_reference": "xilinx.com:module_ref:MUX_3x1:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_MUX_3x1_0_0",
+    "parameters": {
+      "component_parameters": {
+        "width": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "Component_Name": [ { "value": "transmitter_MUX_3x1_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "model_parameters": {
+        "width": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "kintexuplus" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xcau15p" } ],
+        "NEXTGEN_VERSAL": [ { "value": "0" } ],
+        "PACKAGE": [ { "value": "ffvb676" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-2" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "E" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_MUX_3x1_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
+        "SYNTHESISFLOW": [ { "value": "OOC_HIERARCHICAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "A": [ { "direction": "in", "size_left": "0", "size_right": "0" } ],
+        "B": [ { "direction": "in", "size_left": "0", "size_right": "0" } ],
+        "C": [ { "direction": "in", "size_left": "0", "size_right": "0" } ],
+        "sel": [ { "direction": "in", "size_left": "1", "size_right": "0" } ],
+        "D": [ { "direction": "out", "size_left": "0", "size_right": "0" } ]
+      }
+    }
+  }
+}

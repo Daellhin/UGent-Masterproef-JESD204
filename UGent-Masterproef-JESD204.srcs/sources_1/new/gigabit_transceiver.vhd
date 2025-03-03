@@ -7,7 +7,7 @@ entity gigabit_transceiver is
         symbol : in STD_LOGIC_VECTOR (9 downto 0);
         serial_data : out STD_LOGIC
     );
-end gigabit_transceiver;
+end entity;
 
 architecture Behavioral of gigabit_transceiver is
 

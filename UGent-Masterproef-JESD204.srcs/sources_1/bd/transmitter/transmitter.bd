@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xF27FCA488D0AB181",
+      "boundary_crc": "0x3761AEF38C55B25E",
       "device": "xcau15p-ffvb676-2-e",
       "gen_directory": "../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter",
       "name": "transmitter",
@@ -10,16 +10,19 @@
       "tool_version": "2024.1"
     },
     "design_tree": {
-      "synchroniser": "",
       "clock_generator": "",
       "local_clock_generator": "",
-      "frame_mapper": "",
       "scrambler": "",
-      "MUX_octets": "",
       "gigabit_transceiver": "",
       "alignment_substititution": "",
+      "transmitter_state": "",
+      "ILAS_generator": "",
+      "CGS_Generator_0": "",
       "MUX_control": "",
-      "encoder_8b10b": ""
+      "MUX_octets": "",
+      "encoder_wrapper_0": "",
+      "single_ADC_frame_map_0": "",
+      "sync_decoder_0": ""
     },
     "ports": {
       "SYNC": {
@@ -40,9 +43,9 @@
           }
         }
       },
-      "samples_0": {
+      "sample": {
         "direction": "I",
-        "left": "31",
+        "left": "11",
         "right": "0"
       },
       "serial_data_0": {
@@ -54,31 +57,6 @@
       }
     },
     "components": {
-      "synchroniser": {
-        "vlnv": "xilinx.com:module_ref:synchroniser:1.0",
-        "ip_revision": "1",
-        "xci_name": "transmitter_synchroniser_0_0",
-        "xci_path": "ip\\transmitter_synchroniser_0_0\\transmitter_synchroniser_0_0.xci",
-        "inst_hier_path": "synchroniser",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "synchroniser",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "SYNC": {
-            "direction": "I"
-          },
-          "octet": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "synchronising": {
-            "direction": "O"
-          }
-        }
-      },
       "clock_generator": {
         "vlnv": "xilinx.com:module_ref:clock_generator:1.0",
         "ip_revision": "1",
@@ -158,45 +136,9 @@
           "LMF_clk": {
             "type": "clk",
             "direction": "O"
-          }
-        }
-      },
-      "frame_mapper": {
-        "vlnv": "xilinx.com:module_ref:frame_mapper:1.0",
-        "ip_revision": "1",
-        "xci_name": "transmitter_frame_mapper_0_0",
-        "xci_path": "ip\\transmitter_frame_mapper_0_0\\transmitter_frame_mapper_0_0.xci",
-        "inst_hier_path": "frame_mapper",
-        "parameters": {
-          "N": {
-            "value": "16"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "frame_mapper",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "samples": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
           },
-          "frame_clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "transmitter_local_clock_generator_0_0_frame_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "octet_stream": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
+          "LMF_last": {
+            "direction": "O"
           }
         }
       },
@@ -212,7 +154,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "enable": {
+          "scramble_enable": {
             "direction": "I"
           },
           "octet_in": {
@@ -221,38 +163,6 @@
             "right": "0"
           },
           "octet_out": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          }
-        }
-      },
-      "MUX_octets": {
-        "vlnv": "xilinx.com:module_ref:mux:1.0",
-        "ip_revision": "1",
-        "xci_name": "transmitter_mux_0_0",
-        "xci_path": "ip\\transmitter_mux_0_0\\transmitter_mux_0_0.xci",
-        "inst_hier_path": "MUX_octets",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "mux",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "A": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "B": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "sel": {
-            "direction": "I"
-          },
-          "C": {
             "direction": "O",
             "left": "7",
             "right": "0"
@@ -331,52 +241,70 @@
           }
         }
       },
-      "MUX_control": {
-        "vlnv": "xilinx.com:module_ref:mux:1.0",
+      "transmitter_state": {
+        "vlnv": "xilinx.com:module_ref:transmitter_state:1.0",
         "ip_revision": "1",
-        "xci_name": "transmitter_mux_0_2",
-        "xci_path": "ip\\transmitter_mux_0_2\\transmitter_mux_0_2.xci",
-        "inst_hier_path": "MUX_control",
-        "parameters": {
-          "width": {
-            "value": "1"
-          }
-        },
+        "xci_name": "transmitter_transmitter_state_0_0",
+        "xci_path": "ip\\transmitter_transmitter_state_0_0\\transmitter_transmitter_state_0_0.xci",
+        "inst_hier_path": "transmitter_state",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "mux",
+          "ref_name": "transmitter_state",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "A": {
+          "character_clk": {
+            "type": "clk",
             "direction": "I",
-            "left": "0",
-            "right": "0"
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_character_clk",
+                "value_src": "default_prop"
+              }
+            }
           },
-          "B": {
-            "direction": "I",
-            "left": "0",
-            "right": "0"
-          },
-          "sel": {
+          "sync_request": {
             "direction": "I"
           },
-          "C": {
+          "ILA_last": {
+            "direction": "I"
+          },
+          "CGS_complete": {
+            "direction": "I"
+          },
+          "multiframe_last": {
+            "direction": "I"
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enlable_CGS": {
+            "direction": "O"
+          },
+          "enable_ILAS": {
+            "direction": "O"
+          },
+          "state_out": {
             "direction": "O",
-            "left": "0",
+            "left": "1",
             "right": "0"
           }
         }
       },
-      "encoder_8b10b": {
-        "vlnv": "xilinx.com:module_ref:encoder:1.0",
+      "ILAS_generator": {
+        "vlnv": "xilinx.com:module_ref:ILAS_generator:1.0",
         "ip_revision": "1",
-        "xci_name": "transmitter_encoder_0_0",
-        "xci_path": "ip\\transmitter_encoder_0_0\\transmitter_encoder_0_0.xci",
-        "inst_hier_path": "encoder_8b10b",
+        "xci_name": "transmitter_ILAS_generator_0_1",
+        "xci_path": "ip\\transmitter_ILAS_generator_0_1\\transmitter_ILAS_generator_0_1.xci",
+        "inst_hier_path": "ILAS_generator",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "encoder",
+          "ref_name": "ILAS_generator",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -394,11 +322,178 @@
               }
             }
           },
+          "enable": {
+            "direction": "I"
+          },
           "rst": {
             "type": "rst",
             "direction": "I"
           },
+          "octet_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
           "control": {
+            "direction": "O"
+          },
+          "ILA_last": {
+            "direction": "O"
+          }
+        }
+      },
+      "CGS_Generator_0": {
+        "vlnv": "xilinx.com:module_ref:CGS_Generator:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_CGS_Generator_0_0",
+        "xci_path": "ip\\transmitter_CGS_Generator_0_0\\transmitter_CGS_Generator_0_0.xci",
+        "inst_hier_path": "CGS_Generator_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CGS_Generator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "character_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_frame_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "octet_out": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "control": {
+            "direction": "O"
+          },
+          "CGS_complete": {
+            "direction": "O"
+          }
+        }
+      },
+      "MUX_control": {
+        "vlnv": "xilinx.com:module_ref:MUX_3x1:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_MUX_3x1_0_0",
+        "xci_path": "ip\\transmitter_MUX_3x1_0_0\\transmitter_MUX_3x1_0_0.xci",
+        "inst_hier_path": "MUX_control",
+        "parameters": {
+          "width": {
+            "value": "1"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "MUX_3x1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "A": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "B": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "C": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "D": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          }
+        }
+      },
+      "MUX_octets": {
+        "vlnv": "xilinx.com:module_ref:MUX_3x1:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_MUX_3x1_1_0",
+        "xci_path": "ip\\transmitter_MUX_3x1_1_0\\transmitter_MUX_3x1_1_0.xci",
+        "inst_hier_path": "MUX_octets",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "MUX_3x1",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "A": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "B": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "C": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "D": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "encoder_wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:encoder_wrapper:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_encoder_wrapper_0_0",
+        "xci_path": "ip\\transmitter_encoder_wrapper_0_0\\transmitter_encoder_wrapper_0_0.xci",
+        "inst_hier_path": "encoder_wrapper_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "encoder_wrapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "character_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_character_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "initial_RD": {
             "direction": "I"
           },
           "octet": {
@@ -406,37 +501,168 @@
             "left": "7",
             "right": "0"
           },
+          "control": {
+            "direction": "I"
+          },
           "symbol": {
             "direction": "O",
             "left": "9",
             "right": "0"
+          },
+          "invalid_control": {
+            "direction": "O"
+          },
+          "RD": {
+            "direction": "O"
+          }
+        }
+      },
+      "single_ADC_frame_map_0": {
+        "vlnv": "xilinx.com:module_ref:single_ADC_frame_mapper:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_single_ADC_frame_map_0_0",
+        "xci_path": "ip\\transmitter_single_ADC_frame_map_0_0\\transmitter_single_ADC_frame_map_0_0.xci",
+        "inst_hier_path": "single_ADC_frame_map_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "single_ADC_frame_mapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sample_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_sample_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "character_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_character_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sample": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "octet": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "sync_decoder_0": {
+        "vlnv": "xilinx.com:module_ref:sync_decoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_sync_decoder_0_0",
+        "xci_path": "ip\\transmitter_sync_decoder_0_0\\transmitter_sync_decoder_0_0.xci",
+        "inst_hier_path": "sync_decoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sync_decoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "frame_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "transmitter_local_clock_generator_0_0_frame_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sync": {
+            "direction": "I"
+          },
+          "sync_request": {
+            "direction": "O"
           }
         }
       }
     },
     "nets": {
-      "MUX_C": {
+      "CGS_Generator_0_control": {
         "ports": [
-          "MUX_octets/C",
-          "encoder_8b10b/octet"
+          "CGS_Generator_0/control",
+          "MUX_control/A"
+        ]
+      },
+      "CGS_Generator_0_octet_out": {
+        "ports": [
+          "CGS_Generator_0/octet_out",
+          "MUX_octets/A"
+        ]
+      },
+      "ILAS_generator_ILA_last": {
+        "ports": [
+          "ILAS_generator/ILA_last",
+          "transmitter_state/ILA_last"
+        ]
+      },
+      "ILAS_generator_control": {
+        "ports": [
+          "ILAS_generator/control",
+          "MUX_control/B"
+        ]
+      },
+      "ILAS_generator_octet_out": {
+        "ports": [
+          "ILAS_generator/octet_out",
+          "MUX_octets/B"
+        ]
+      },
+      "MUX_control_D": {
+        "ports": [
+          "MUX_control/D",
+          "encoder_wrapper_0/control"
+        ]
+      },
+      "MUX_octets_D": {
+        "ports": [
+          "MUX_octets/D",
+          "encoder_wrapper_0/octet"
         ]
       },
       "SYNC_1": {
         "ports": [
           "SYNC",
-          "synchroniser/SYNC"
+          "sync_decoder_0/sync"
         ]
       },
       "alignment_substititution_control": {
         "ports": [
           "alignment_substititution/control",
-          "MUX_control/B"
+          "MUX_control/C"
         ]
       },
       "alignment_substititution_octet_out": {
         "ports": [
           "alignment_substititution/octet_out",
-          "MUX_octets/B"
+          "MUX_octets/C"
         ]
       },
       "clock_generator_0_device_clk": {
@@ -451,22 +677,22 @@
           "local_clock_generator/sysref"
         ]
       },
-      "encoder_0_encoded_8b10b": {
+      "encoder_wrapper_0_symbol": {
         "ports": [
-          "encoder_8b10b/symbol",
+          "encoder_wrapper_0/symbol",
           "gigabit_transceiver/symbol"
-        ]
-      },
-      "frame_mapper_octet_out": {
-        "ports": [
-          "frame_mapper/octet_stream",
-          "scrambler/octet_in"
         ]
       },
       "gigabit_transceiver_serial_data": {
         "ports": [
           "gigabit_transceiver/serial_data",
           "serial_data_0"
+        ]
+      },
+      "local_clock_generator_LMF_last": {
+        "ports": [
+          "local_clock_generator/LMF_last",
+          "transmitter_state/multiframe_last"
         ]
       },
       "local_clock_generator_bit_clk": {
@@ -478,45 +704,48 @@
       "local_clock_generator_character_clk": {
         "ports": [
           "local_clock_generator/character_clk",
+          "encoder_wrapper_0/character_clk",
+          "transmitter_state/character_clk",
+          "single_ADC_frame_map_0/character_clk",
           "alignment_substititution/character_clk"
         ]
       },
       "local_clock_generator_frame_clk": {
         "ports": [
           "local_clock_generator/frame_clk",
-          "frame_mapper/frame_clk",
-          "encoder_8b10b/character_clk"
+          "ILAS_generator/character_clk",
+          "CGS_Generator_0/character_clk",
+          "sync_decoder_0/frame_clk"
         ]
       },
       "local_clock_generator_sample_clk": {
         "ports": [
           "local_clock_generator/sample_clk",
-          "sample_clk_0"
-        ]
-      },
-      "mux_0_C": {
-        "ports": [
-          "MUX_control/C",
-          "encoder_8b10b/control"
+          "sample_clk_0",
+          "single_ADC_frame_map_0/sample_clk"
         ]
       },
       "rst_1": {
         "ports": [
           "rst",
-          "encoder_8b10b/rst"
+          "ILAS_generator/rst",
+          "encoder_wrapper_0/rst",
+          "transmitter_state/rst",
+          "single_ADC_frame_map_0/rst",
+          "sync_decoder_0/rst"
         ]
       },
-      "samples_0_1": {
+      "sample_1": {
         "ports": [
-          "samples_0",
-          "frame_mapper/samples"
+          "sample",
+          "single_ADC_frame_map_0/sample"
         ]
       },
       "scramble_enable_1": {
         "ports": [
           "scramble_enable",
-          "alignment_substititution/scrable_enable",
-          "scrambler/enable"
+          "scrambler/scramble_enable",
+          "alignment_substititution/scrable_enable"
         ]
       },
       "scrambler_octet_out": {
@@ -525,24 +754,41 @@
           "alignment_substititution/octet_in"
         ]
       },
+      "single_ADC_frame_map_0_octet": {
+        "ports": [
+          "single_ADC_frame_map_0/octet",
+          "scrambler/octet_in"
+        ]
+      },
       "source_clk_1": {
         "ports": [
           "source_clk",
           "clock_generator/source_clk"
         ]
       },
-      "synchroniser_0_character": {
+      "sync_decoder_0_sync_request": {
         "ports": [
-          "synchroniser/octet",
-          "MUX_octets/A"
+          "sync_decoder_0/sync_request",
+          "transmitter_state/sync_request"
         ]
       },
-      "synchroniser_0_synchronised": {
+      "transmitter_state_0_enable_ILAS": {
         "ports": [
-          "synchroniser/synchronising",
-          "MUX_octets/sel",
+          "transmitter_state/enable_ILAS",
+          "ILAS_generator/enable"
+        ]
+      },
+      "transmitter_state_enlable_CGS": {
+        "ports": [
+          "transmitter_state/enlable_CGS",
+          "CGS_Generator_0/enable"
+        ]
+      },
+      "transmitter_state_state_out": {
+        "ports": [
+          "transmitter_state/state_out",
           "MUX_control/sel",
-          "MUX_control/A"
+          "MUX_octets/sel"
         ]
       }
     }

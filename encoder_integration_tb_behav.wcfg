@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="encoder_integration_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="encoder_integration_tb" />
+            <top_module name="glbl" />
+            <top_module name="utils_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="87.317 ns"></ZoomEndTime>
+      <Cursor1Time time="10.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/encoder_integration_tb/finished" type="other">
+      <obj_property name="ElementShortName">finished</obj_property>
+      <obj_property name="ObjectShortName">finished</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/character_clk" type="logic">
+      <obj_property name="ElementShortName">character_clk</obj_property>
+      <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/initial_RD" type="logic">
+      <obj_property name="ElementShortName">initial_RD</obj_property>
+      <obj_property name="ObjectShortName">initial_RD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/control" type="logic">
+      <obj_property name="ElementShortName">control</obj_property>
+      <obj_property name="ObjectShortName">control</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/octet" type="array">
+      <obj_property name="ElementShortName">octet[7:0]</obj_property>
+      <obj_property name="ObjectShortName">octet[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/symbol" type="array">
+      <obj_property name="ElementShortName">symbol[9:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/symbol_v" type="array">
+      <obj_property name="ElementShortName">symbol_v[9:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol_v[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/RD" type="logic">
+      <obj_property name="ElementShortName">RD</obj_property>
+      <obj_property name="ObjectShortName">RD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/invalid_control" type="logic">
+      <obj_property name="ElementShortName">invalid_control</obj_property>
+      <obj_property name="ObjectShortName">invalid_control</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/symbol_valid" type="logic">
+      <obj_property name="ElementShortName">symbol_valid</obj_property>
+      <obj_property name="ObjectShortName">symbol_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/DataOut" type="array">
+      <obj_property name="ElementShortName">DataOut[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DataOut[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/open_s" type="logic">
+      <obj_property name="ElementShortName">open_s</obj_property>
+      <obj_property name="ObjectShortName">open_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/CtrlDetect" type="logic">
+      <obj_property name="ElementShortName">CtrlDetect</obj_property>
+      <obj_property name="ObjectShortName">CtrlDetect</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/ErrDetect" type="logic">
+      <obj_property name="ElementShortName">ErrDetect</obj_property>
+      <obj_property name="ObjectShortName">ErrDetect</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/DispErrDetect" type="logic">
+      <obj_property name="ElementShortName">DispErrDetect</obj_property>
+      <obj_property name="ObjectShortName">DispErrDetect</obj_property>
+   </wvobject>
+   <wvobject fp_name="/encoder_integration_tb/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+</wave_config>

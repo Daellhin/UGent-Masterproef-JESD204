@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="serializer_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="serializer_tb" />
+            <top_module name="utils_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="49.851 ns"></ZoomEndTime>
+      <Cursor1Time time="10.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/serializer_tb/bit_clk_period" type="other">
+      <obj_property name="ElementShortName">bit_clk_period</obj_property>
+      <obj_property name="ObjectShortName">bit_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/character_clk_period" type="other">
+      <obj_property name="ElementShortName">character_clk_period</obj_property>
+      <obj_property name="ObjectShortName">character_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/character_clk" type="logic">
+      <obj_property name="ElementShortName">character_clk</obj_property>
+      <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/bit_clk" type="logic">
+      <obj_property name="ElementShortName">bit_clk</obj_property>
+      <obj_property name="ObjectShortName">bit_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/LSB_first" type="other">
+      <obj_property name="ElementShortName">LSB_first</obj_property>
+      <obj_property name="ObjectShortName">LSB_first</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/symbol" type="array">
+      <obj_property name="ElementShortName">symbol[9:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/serial_data" type="logic">
+      <obj_property name="ElementShortName">serial_data</obj_property>
+      <obj_property name="ObjectShortName">serial_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/DUT/bit_counter" type="other">
+      <obj_property name="ElementShortName">bit_counter</obj_property>
+      <obj_property name="ObjectShortName">bit_counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/DUT/symbol_buffer_1" type="array">
+      <obj_property name="ElementShortName">symbol_buffer_1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol_buffer_1[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/DUT/symbol_buffer_2" type="array">
+      <obj_property name="ElementShortName">symbol_buffer_2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">symbol_buffer_2[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/serializer_tb/DUT/active_buffer" type="other">
+      <obj_property name="ElementShortName">active_buffer</obj_property>
+      <obj_property name="ObjectShortName">active_buffer</obj_property>
+   </wvobject>
+</wave_config>

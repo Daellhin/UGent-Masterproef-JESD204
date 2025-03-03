@@ -2,19 +2,25 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+library xil_defaultlib;
+use xil_defaultlib.utils_package.all;
+
 -- 8b10b encoder for JESD204B
--- Following IBM implementatation:
+-- Following IBM implementation:
 -- Input 8bit octet(3bit+5bit)
 --  -> XXX XXXXX
--- Output 10bit sumbol(6bit+3bit)
+-- Output 10bit symbol(6bit+4bit) MSB first
 --  -> XXXXXX XXXX
 entity encoder is
-    Port (
-        character_clk: in std_logic;              -- Clock, encoder reads octet on rising edge converts it to symbol
-        rst: in std_logic;                        -- Synchronus reset (Active High)
-        initial_RD: in std_logic := '0';          -- RD value at start or after reset(0=-1) (1=+1). Used for testing
-        control: in std_logic;                    -- Are control characters being sent (Active High)
+    generic(
+        reverse_bits: boolean := false            -- Reverse bits, when true reverse symbol to MSB last
+    );
+    Port(
+        character_clk: in std_logic;              -- Charcacter clock, encoder samples octet on rising edge
+        rst: in std_logic;                        -- Synchronous reset (Active High)
+        initial_RD: in std_logic;                 -- RD value at start or after reset(0=-1) (1=+1). Used for testing
         octet: in std_logic_vector(7 downto 0);   -- 8 bit input (XXX XXXXX)
+        control: in std_logic;                    -- Are control dcharacters being sent (Active High)
         symbol: out std_logic_vector(9 downto 0); -- 10 bit output (XXXXXX XXXX)
         invalid_control: out std_logic;           -- High when control is active and non control octet is provided
         RD: out std_logic                         -- RD output. Used for testing
@@ -137,58 +143,58 @@ architecture Behavioral of encoder is
       end loop;
       return temp;
     end function count_ones;
-
+    
 begin
-    process(character_clk)
-        variable lower5: std_logic_vector(4 downto 0); -- lower 5 bits of octet
-        variable upper3: std_logic_vector(2 downto 0); -- upper 3 bits of octet
+   process(character_clk)
+       variable lower5: std_logic_vector(4 downto 0); -- lower 5 bits of octet
+       variable upper3: std_logic_vector(2 downto 0); -- upper 3 bits of octet
         
-        variable sixBitCode: std_logic_vector(5 downto 0); -- lower 6 bits of symbol
-        variable fourBitCode: std_logic_vector(3 downto 0); -- upper 4 bits of symbol
-        variable RD_i: std_logic;
-        variable ones_sixBitCode: integer;
-        variable ones_fourBitCode: integer;
-    begin
-        if rising_edge(character_clk) then
-            if rst = '1' then
-                RD <= initial_RD;
-                symbol <= (others => '0');
-                invalid_control <= '0';
-            else
-                lower5 := octet(4 downto 0);
-                upper3 := octet(7 downto 5);
-                RD_i := RD;
+       variable sixBitCode: std_logic_vector(5 downto 0); -- lower 6 bits of symbol
+       variable fourBitCode: std_logic_vector(3 downto 0); -- upper 4 bits of symbol
+       variable RD_i: std_logic;
+       variable ones_sixBitCode: integer;
+       variable ones_fourBitCode: integer;
+   begin
+       if rising_edge(character_clk) then
+           if rst = '1' then
+               RD <= initial_RD;
+               symbol <= (others => '0');
+               invalid_control <= '0';
+           else
+               lower5 := octet(4 downto 0);
+               upper3 := octet(7 downto 5);
+               RD_i := RD;
                 
-                sixBitCode := encode5b6b_data(lower5) when control = '0' else encode5b6b_control(lower5);
-                ones_sixBitCode := count_ones(sixBitCode);
-                if RD_i = '1' and (ones_sixBitCode = 4 or lower5 = "00111") then
-                    sixBitCode := not sixBitCode;
-                end if;
-                if ones_sixBitCode = 4 then
-                    RD_i := not RD_i;
-                end if;
+               sixBitCode := encode5b6b_data(lower5) when control = '0' else encode5b6b_control(lower5);
+               ones_sixBitCode := count_ones(sixBitCode);
+               if RD_i = '1' and (ones_sixBitCode = 4 or lower5 = "00111") then
+                   sixBitCode := not sixBitCode;
+               end if;
+               if ones_sixBitCode = 4 then
+                   RD_i := not RD_i;
+               end if;
                 
-                fourBitCode := encode3b4b_data(upper3) when control = '0' else encode3b4b_control(upper3);
-                ones_fourBitCode := count_ones(fourBitCode);
-                -- P7 A7 correction
-                if (upper3 = "111" and (
-                    (RD = '0' and (lower5 = "10001" or lower5 = "10010" or lower5 = "10100")) or
-                    (RD = '1' and (lower5 = "01011" or lower5 = "01101" or lower5 = "01110"))
-                )) then
-                    fourBitCode := "0111";
-                end if;
-                if RD_i = '1' and (ones_fourBitCode = 3 or upper3 = "011" or control = '1') then
-                    fourBitCode := not fourBitCode;
-                end if;
-                if ones_fourBitCode = 3 then
-                    RD_i := not RD_i;
-                end if;
+               fourBitCode := encode3b4b_data(upper3) when control = '0' else encode3b4b_control(upper3);
+               ones_fourBitCode := count_ones(fourBitCode);
+               -- P7 A7 correction
+               if (upper3 = "111" and (
+                   (RD = '0' and (lower5 = "10001" or lower5 = "10010" or lower5 = "10100")) or
+                   (RD = '1' and (lower5 = "01011" or lower5 = "01101" or lower5 = "01110"))
+               )) then
+                   fourBitCode := "0111";
+               end if;
+               if RD_i = '1' and (ones_fourBitCode = 3 or upper3 = "011" or control = '1') then
+                   fourBitCode := not fourBitCode;
+               end if;
+               if ones_fourBitCode = 3 then
+                   RD_i := not RD_i;
+               end if;
                 
-                RD <= RD_i;
-                symbol <= sixBitCode & fourBitCode;
-                invalid_control <= '1' when control='1' and not is_valid_control_input(octet)  else '0';
-            end if;
-        end if;
-    end process;
-
+               RD <= RD_i;
+               symbol <= sixBitCode&fourBitCode when not reverse_bits else reverse(sixBitCode&fourBitCode);
+               invalid_control <= '1' when control='1' and not is_valid_control_input(octet)  else '0';
+           end if;
+       end if;
+   end process;
+   
 end Behavioral;

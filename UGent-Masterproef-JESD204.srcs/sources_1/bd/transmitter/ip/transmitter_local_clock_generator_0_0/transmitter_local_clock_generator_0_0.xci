@@ -43,7 +43,8 @@
         "frame_clk": [ { "direction": "out" } ],
         "character_clk": [ { "direction": "out" } ],
         "bit_clk": [ { "direction": "out" } ],
-        "LMF_clk": [ { "direction": "out" } ]
+        "LMF_clk": [ { "direction": "out" } ],
+        "LMF_last": [ { "direction": "out" } ]
       },
       "interfaces": {
         "LMF_clk": {
