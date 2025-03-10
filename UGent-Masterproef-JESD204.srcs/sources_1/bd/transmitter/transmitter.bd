@@ -13,16 +13,16 @@
       "clock_generator": "",
       "local_clock_generator": "",
       "scrambler": "",
-      "gigabit_transceiver": "",
       "alignment_substititution": "",
       "transmitter_state": "",
       "ILAS_generator": "",
-      "CGS_Generator_0": "",
+      "CGS_Generator": "",
       "MUX_control": "",
       "MUX_octets": "",
-      "encoder_wrapper_0": "",
-      "single_ADC_frame_map_0": "",
-      "sync_decoder_0": ""
+      "encoder_wrapper": "",
+      "single_ADC_frame_map": "",
+      "sync_decoder": "",
+      "serializer": ""
     },
     "ports": {
       "SYNC": {
@@ -169,38 +169,6 @@
           }
         }
       },
-      "gigabit_transceiver": {
-        "vlnv": "xilinx.com:module_ref:gigabit_transceiver:1.0",
-        "ip_revision": "1",
-        "xci_name": "transmitter_gigabit_transceiver_0_0",
-        "xci_path": "ip\\transmitter_gigabit_transceiver_0_0\\transmitter_gigabit_transceiver_0_0.xci",
-        "inst_hier_path": "gigabit_transceiver",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "gigabit_transceiver",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "bit_clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "transmitter_local_clock_generator_0_0_bit_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "symbol": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "serial_data": {
-            "direction": "O"
-          }
-        }
-      },
       "alignment_substititution": {
         "vlnv": "xilinx.com:module_ref:alignment_substititution:1.0",
         "ip_revision": "1",
@@ -342,12 +310,12 @@
           }
         }
       },
-      "CGS_Generator_0": {
+      "CGS_Generator": {
         "vlnv": "xilinx.com:module_ref:CGS_Generator:1.0",
         "ip_revision": "1",
         "xci_name": "transmitter_CGS_Generator_0_0",
         "xci_path": "ip\\transmitter_CGS_Generator_0_0\\transmitter_CGS_Generator_0_0.xci",
-        "inst_hier_path": "CGS_Generator_0",
+        "inst_hier_path": "CGS_Generator",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "CGS_Generator",
@@ -463,12 +431,12 @@
           }
         }
       },
-      "encoder_wrapper_0": {
+      "encoder_wrapper": {
         "vlnv": "xilinx.com:module_ref:encoder_wrapper:1.0",
         "ip_revision": "1",
         "xci_name": "transmitter_encoder_wrapper_0_0",
         "xci_path": "ip\\transmitter_encoder_wrapper_0_0\\transmitter_encoder_wrapper_0_0.xci",
-        "inst_hier_path": "encoder_wrapper_0",
+        "inst_hier_path": "encoder_wrapper",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "encoder_wrapper",
@@ -517,12 +485,12 @@
           }
         }
       },
-      "single_ADC_frame_map_0": {
+      "single_ADC_frame_map": {
         "vlnv": "xilinx.com:module_ref:single_ADC_frame_mapper:1.0",
         "ip_revision": "1",
         "xci_name": "transmitter_single_ADC_frame_map_0_0",
         "xci_path": "ip\\transmitter_single_ADC_frame_map_0_0\\transmitter_single_ADC_frame_map_0_0.xci",
-        "inst_hier_path": "single_ADC_frame_map_0",
+        "inst_hier_path": "single_ADC_frame_map",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "single_ADC_frame_mapper",
@@ -565,12 +533,12 @@
           }
         }
       },
-      "sync_decoder_0": {
+      "sync_decoder": {
         "vlnv": "xilinx.com:module_ref:sync_decoder:1.0",
         "ip_revision": "1",
         "xci_name": "transmitter_sync_decoder_0_0",
         "xci_path": "ip\\transmitter_sync_decoder_0_0\\transmitter_sync_decoder_0_0.xci",
-        "inst_hier_path": "sync_decoder_0",
+        "inst_hier_path": "sync_decoder",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "sync_decoder",
@@ -602,18 +570,44 @@
             "direction": "O"
           }
         }
+      },
+      "serializer": {
+        "vlnv": "xilinx.com:module_ref:serializer:1.0",
+        "ip_revision": "1",
+        "xci_name": "transmitter_serializer_0_0",
+        "xci_path": "ip\\transmitter_serializer_0_0\\transmitter_serializer_0_0.xci",
+        "inst_hier_path": "serializer",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "serializer",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "bit_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "parallel_data": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "serial_data": {
+            "direction": "O"
+          }
+        }
       }
     },
     "nets": {
       "CGS_Generator_0_control": {
         "ports": [
-          "CGS_Generator_0/control",
+          "CGS_Generator/control",
           "MUX_control/A"
         ]
       },
       "CGS_Generator_0_octet_out": {
         "ports": [
-          "CGS_Generator_0/octet_out",
+          "CGS_Generator/octet_out",
           "MUX_octets/A"
         ]
       },
@@ -638,19 +632,19 @@
       "MUX_control_D": {
         "ports": [
           "MUX_control/D",
-          "encoder_wrapper_0/control"
+          "encoder_wrapper/control"
         ]
       },
       "MUX_octets_D": {
         "ports": [
           "MUX_octets/D",
-          "encoder_wrapper_0/octet"
+          "encoder_wrapper/octet"
         ]
       },
       "SYNC_1": {
         "ports": [
           "SYNC",
-          "sync_decoder_0/sync"
+          "sync_decoder/sync"
         ]
       },
       "alignment_substititution_control": {
@@ -679,14 +673,8 @@
       },
       "encoder_wrapper_0_symbol": {
         "ports": [
-          "encoder_wrapper_0/symbol",
-          "gigabit_transceiver/symbol"
-        ]
-      },
-      "gigabit_transceiver_serial_data": {
-        "ports": [
-          "gigabit_transceiver/serial_data",
-          "serial_data_0"
+          "encoder_wrapper/symbol",
+          "serializer/parallel_data"
         ]
       },
       "local_clock_generator_LMF_last": {
@@ -695,50 +683,45 @@
           "transmitter_state/multiframe_last"
         ]
       },
-      "local_clock_generator_bit_clk": {
-        "ports": [
-          "local_clock_generator/bit_clk",
-          "gigabit_transceiver/bit_clk"
-        ]
-      },
       "local_clock_generator_character_clk": {
         "ports": [
           "local_clock_generator/character_clk",
-          "encoder_wrapper_0/character_clk",
+          "encoder_wrapper/character_clk",
           "transmitter_state/character_clk",
-          "single_ADC_frame_map_0/character_clk",
-          "alignment_substititution/character_clk"
+          "single_ADC_frame_map/character_clk",
+          "alignment_substititution/character_clk",
+          "serializer/bit_clk"
         ]
       },
       "local_clock_generator_frame_clk": {
         "ports": [
           "local_clock_generator/frame_clk",
           "ILAS_generator/character_clk",
-          "CGS_Generator_0/character_clk",
-          "sync_decoder_0/frame_clk"
+          "CGS_Generator/character_clk",
+          "sync_decoder/frame_clk"
         ]
       },
       "local_clock_generator_sample_clk": {
         "ports": [
           "local_clock_generator/sample_clk",
           "sample_clk_0",
-          "single_ADC_frame_map_0/sample_clk"
+          "single_ADC_frame_map/sample_clk"
         ]
       },
       "rst_1": {
         "ports": [
           "rst",
           "ILAS_generator/rst",
-          "encoder_wrapper_0/rst",
+          "encoder_wrapper/rst",
           "transmitter_state/rst",
-          "single_ADC_frame_map_0/rst",
-          "sync_decoder_0/rst"
+          "single_ADC_frame_map/rst",
+          "sync_decoder/rst"
         ]
       },
       "sample_1": {
         "ports": [
           "sample",
-          "single_ADC_frame_map_0/sample"
+          "single_ADC_frame_map/sample"
         ]
       },
       "scramble_enable_1": {
@@ -754,9 +737,15 @@
           "alignment_substititution/octet_in"
         ]
       },
+      "serializer_0_serial_data": {
+        "ports": [
+          "serializer/serial_data",
+          "serial_data_0"
+        ]
+      },
       "single_ADC_frame_map_0_octet": {
         "ports": [
-          "single_ADC_frame_map_0/octet",
+          "single_ADC_frame_map/octet",
           "scrambler/octet_in"
         ]
       },
@@ -768,7 +757,7 @@
       },
       "sync_decoder_0_sync_request": {
         "ports": [
-          "sync_decoder_0/sync_request",
+          "sync_decoder/sync_request",
           "transmitter_state/sync_request"
         ]
       },
@@ -781,7 +770,7 @@
       "transmitter_state_enlable_CGS": {
         "ports": [
           "transmitter_state/enlable_CGS",
-          "CGS_Generator_0/enable"
+          "CGS_Generator/enable"
         ]
       },
       "transmitter_state_state_out": {

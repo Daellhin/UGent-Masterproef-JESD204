@@ -22,9 +22,8 @@ begin
         variable octetcounter: integer := 0;
         variable multiframecounter: integer := 0;
         variable octetvalue: integer := 0;
-        constant octetsInMultiframe: integer := (to_integer(unsigned(F))+1)*(to_integer(unsigned(K))+1);
-        constant CHKSUM: integer := to_integer(unsigned(ADJCNT)) + to_integer(unsigned(ADJDIR)) + to_integer(unsigned(BID)) + to_integer(unsigned(CF)) + to_integer(unsigned(CS)) + to_integer(unsigned(DID)) + to_integer(unsigned(F)) + to_integer(unsigned(HD)) + to_integer(unsigned(JESDV)) + to_integer(unsigned(K)) + to_integer(unsigned(L)) + to_integer(unsigned(LID)) + to_integer(unsigned(M)) + to_integer(unsigned(N)) + to_integer(unsigned(Na)) + to_integer(unsigned(PHADJ)) + to_integer(unsigned(S)) + to_integer(unsigned(SCR)) + to_integer(unsigned(SUBCLASSV));
-    begin
+        constant octetsInMultiframe: integer := F*K;
+constant CHKSUM: integer := to_integer(unsigned(b_ADJCNT)) + to_integer(unsigned(b_ADJDIR)) + to_integer(unsigned(b_BID)) + to_integer(unsigned(b_CF)) + to_integer(unsigned(b_CS)) + to_integer(unsigned(b_DID)) + to_integer(unsigned(b_F)) + to_integer(unsigned(b_HD)) + to_integer(unsigned(b_JESDV)) + to_integer(unsigned(b_K)) + to_integer(unsigned(b_L)) + to_integer(unsigned(b_LID)) + to_integer(unsigned(b_M)) + to_integer(unsigned(b_N)) + to_integer(unsigned(b_Na)) + to_integer(unsigned(b_PHADJ)) + to_integer(unsigned(b_S)) + to_integer(unsigned(b_SCR)) + to_integer(unsigned(b_SUBCLASSV));    begin
         if rst = '1' then
             octetcounter := 0;
             multiframecounter := 0;
@@ -51,17 +50,17 @@ begin
                 end if;
             elsif multiframeCounter = 1 then
                 case octetcounter is
-                    when 2 => octet_out <= DID;
-                    when 3 => octet_out <= ADJCNT&BID;
-                    when 4 => octet_out <= "X"&ADJDIR&PHADJ&LID;
-                    when 5 => octet_out <= SCR&"X"&"X"&L;
-                    when 6 => octet_out <= F;
-                    when 7 => octet_out <= "X"&"X"&"X"&K;
-                    when 8 => octet_out <= M;
-                    when 9 => octet_out <= CS&"X"&N;
-                    when 10 => octet_out <= SUBCLASSV&Na;
-                    when 11 => octet_out <= JESDV&S;
-                    when 12 => octet_out <= HD&"X"&"X"&CF;
+                    when 2 => octet_out <= b_DID;
+                    when 3 => octet_out <= b_ADJCNT&b_BID;
+                    when 4 => octet_out <= "X"&b_ADJDIR&b_PHADJ&b_LID;
+                    when 5 => octet_out <= b_SCR&"X"&"X"&b_L;
+                    when 6 => octet_out <= b_F;
+                    when 7 => octet_out <= "X"&"X"&"X"&b_K;
+                    when 8 => octet_out <= b_M;
+                    when 9 => octet_out <= b_CS&"X"&b_N;
+                    when 10 => octet_out <= b_SUBCLASSV&b_Na;
+                    when 11 => octet_out <= b_JESDV&b_S;
+                    when 12 => octet_out <= b_HD&"X"&"X"&b_CF;
                     when 13 => octet_out <= "XXXXXXXX";
                     when 14 => octet_out <= "XXXXXXXX";
                     when 15 => octet_out <= std_logic_vector(to_unsigned(CHKSUM, 8));

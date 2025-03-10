@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "transmitter_single_ADC_frame_map_0_0",
-    "cell_name": "single_ADC_frame_map_0",
+    "cell_name": "single_ADC_frame_map",
     "component_reference": "xilinx.com:module_ref:single_ADC_frame_mapper:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_single_ADC_frame_map_0_0",
