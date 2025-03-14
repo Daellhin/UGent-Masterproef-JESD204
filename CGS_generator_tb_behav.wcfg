@@ -12,15 +12,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,202.687 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="833.520 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,329.021 ns"></ZoomEndTime>
+      <Cursor1Time time="133.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
+   <wvobject fp_name="/CGS_generator_tb/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
    <wvobject fp_name="/CGS_generator_tb/character_clk" type="logic">
       <obj_property name="ElementShortName">character_clk</obj_property>
       <obj_property name="ObjectShortName">character_clk</obj_property>
@@ -40,10 +44,6 @@
    <wvobject fp_name="/CGS_generator_tb/CGS_complete" type="logic">
       <obj_property name="ElementShortName">CGS_complete</obj_property>
       <obj_property name="ObjectShortName">CGS_complete</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CGS_generator_tb/clk_period" type="other">
-      <obj_property name="ElementShortName">clk_period</obj_property>
-      <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
    <wvobject fp_name="/CGS_generator_tb/DUT/CGS_counter" type="other">
       <obj_property name="ElementShortName">CGS_counter</obj_property>

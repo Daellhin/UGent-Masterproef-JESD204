@@ -20,7 +20,7 @@ begin
     );
     
      -- Setup signals
-    scramble_enable <= '1';
+    scramble_enable <= '0';
     
     process begin
         octet_in <= "00000000";

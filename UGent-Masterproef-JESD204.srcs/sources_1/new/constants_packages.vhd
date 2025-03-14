@@ -25,11 +25,12 @@ package constants_package is
     constant b_SUBCLASSV : std_logic_vector(2 downto 0) := "001";   -- Subclass version
     
     -- Integer constants
-    constant F         : integer := to_integer(unsigned(b_F))+1; -- Octets per frame
-    constant K         : integer := to_integer(unsigned(b_K))+1; -- Frames per multiframe
-    constant L         : integer := to_integer(unsigned(b_L))+1; -- Lanes
-    constant M         : integer := to_integer(unsigned(b_M))+1; -- Converters per device
-    constant N         : integer := to_integer(unsigned(b_N))+1; -- Bits per sample (Converter resolution)
+    constant F: integer := to_integer(unsigned(b_F))+1; -- Octets per frame
+    constant K: integer := to_integer(unsigned(b_K))+1; -- Frames per multiframe
+    constant L: integer := to_integer(unsigned(b_L))+1; -- Lanes
+    constant M: integer := to_integer(unsigned(b_M))+1; -- Converters per device
+    constant N: integer := to_integer(unsigned(b_N))+1; -- Bits per sample (Converter resolution)
+    constant S: integer := to_integer(unsigned(b_S))+1; -- Samples per converter per frame
     
     -- Control character constants
     constant ctrlR: std_logic_vector(7 downto 0) := "00011100"; -- /R/=K28.0: Initial lane alignment sequence multi-frame start

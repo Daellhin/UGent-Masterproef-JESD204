@@ -12,21 +12,29 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="197.001 ns"></ZoomEndTime>
-      <Cursor1Time time="60.000 ns"></Cursor1Time>
+      <ZoomEndTime time="381.688 ns"></ZoomEndTime>
+      <Cursor1Time time="114.420 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
-   <wvobject fp_name="/single_ADC_frame_mapper_tb/sample_clk" type="logic">
-      <obj_property name="ElementShortName">sample_clk</obj_property>
-      <obj_property name="ObjectShortName">sample_clk</obj_property>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/character_clk_period" type="other">
+      <obj_property name="ElementShortName">character_clk_period</obj_property>
+      <obj_property name="ObjectShortName">character_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/sample_clk_period" type="other">
+      <obj_property name="ElementShortName">sample_clk_period</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_period</obj_property>
    </wvobject>
    <wvobject fp_name="/single_ADC_frame_mapper_tb/character_clk" type="logic">
       <obj_property name="ElementShortName">character_clk</obj_property>
       <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/sample_clk" type="logic">
+      <obj_property name="ElementShortName">sample_clk</obj_property>
+      <obj_property name="ObjectShortName">sample_clk</obj_property>
    </wvobject>
    <wvobject fp_name="/single_ADC_frame_mapper_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
@@ -52,6 +60,9 @@
    <wvobject fp_name="/single_ADC_frame_mapper_tb/DUT/sample_buffer" type="array">
       <obj_property name="ElementShortName">sample_buffer[47:0]</obj_property>
       <obj_property name="ObjectShortName">sample_buffer[47:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/single_ADC_frame_mapper_tb/DUT/sample_buffered" type="other">
+      <obj_property name="ElementShortName">sample_buffered</obj_property>
+      <obj_property name="ObjectShortName">sample_buffered</obj_property>
    </wvobject>
 </wave_config>

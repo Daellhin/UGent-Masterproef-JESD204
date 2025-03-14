@@ -77,7 +77,7 @@ ARCHITECTURE transmitter_CGS_Generator_0_0_arch OF transmitter_CGS_Generator_0_0
   END COMPONENT CGS_Generator;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF character_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 character_clk CLK";
 BEGIN
   U0 : CGS_Generator

@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,202.687 ns"></ZoomEndTime>
-      <Cursor1Time time="192.918 ns"></Cursor1Time>
+      <ZoomStartTime time="831.833 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,033.634 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <NameColumnWidth column_width="157"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="13" />
    <wvobject fp_name="/local_clock_generator_tb/clk_period" type="other">
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
@@ -33,6 +33,14 @@
       <obj_property name="ElementShortName">sysref</obj_property>
       <obj_property name="ObjectShortName">sysref</obj_property>
    </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/bit_clk" type="logic">
+      <obj_property name="ElementShortName">bit_clk</obj_property>
+      <obj_property name="ObjectShortName">bit_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/character_clk" type="logic">
+      <obj_property name="ElementShortName">character_clk</obj_property>
+      <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
    <wvobject fp_name="/local_clock_generator_tb/sample_clk" type="logic">
       <obj_property name="ElementShortName">sample_clk</obj_property>
       <obj_property name="ObjectShortName">sample_clk</obj_property>
@@ -41,20 +49,28 @@
       <obj_property name="ElementShortName">frame_clk</obj_property>
       <obj_property name="ObjectShortName">frame_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/local_clock_generator_tb/character_clk" type="logic">
-      <obj_property name="ElementShortName">character_clk</obj_property>
-      <obj_property name="ObjectShortName">character_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/local_clock_generator_tb/bit_clk" type="logic">
-      <obj_property name="ElementShortName">bit_clk</obj_property>
-      <obj_property name="ObjectShortName">bit_clk</obj_property>
-   </wvobject>
    <wvobject fp_name="/local_clock_generator_tb/LMF_clk" type="logic">
       <obj_property name="ElementShortName">LMF_clk</obj_property>
       <obj_property name="ObjectShortName">LMF_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/local_clock_generator_tb/LMF_last" type="logic">
-      <obj_property name="ElementShortName">LMF_last</obj_property>
-      <obj_property name="ObjectShortName">LMF_last</obj_property>
+   <wvobject fp_name="/local_clock_generator_tb/DUT/sample_clk_counter" type="other">
+      <obj_property name="ElementShortName">sample_clk_counter</obj_property>
+      <obj_property name="ObjectShortName">sample_clk_counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/DUT/frame_clk_counter" type="other">
+      <obj_property name="ElementShortName">frame_clk_counter</obj_property>
+      <obj_property name="ObjectShortName">frame_clk_counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/DUT/LMF_clk_counter" type="other">
+      <obj_property name="ElementShortName">LMF_clk_counter</obj_property>
+      <obj_property name="ObjectShortName">LMF_clk_counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/frame_end" type="logic">
+      <obj_property name="ElementShortName">frame_end</obj_property>
+      <obj_property name="ObjectShortName">frame_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/local_clock_generator_tb/multiframe_end" type="logic">
+      <obj_property name="ElementShortName">multiframe_end</obj_property>
+      <obj_property name="ObjectShortName">multiframe_end</obj_property>
    </wvobject>
 </wave_config>

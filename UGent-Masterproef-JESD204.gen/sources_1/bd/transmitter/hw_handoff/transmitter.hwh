@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 14 13:58:17 2025" VIVADOVERSION="2024.1">
+
+  <SYSTEMINFO ARCH="kintexuplus" DEVICE="xcau15p" NAME="transmitter" PACKAGE="ffvb676" SPEEDGRADE="-2"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="SYNC" SIGIS="undef" SIGNAME="External_Ports_SYNC">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="sync_decoder" PORT="sync"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SYSREF" SIGIS="undef" SIGNAME="External_Ports_SYSREF">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="local_clock_generator" PORT="SYSREF"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="1000000000" DIR="I" NAME="device_clk" SIGIS="clk" SIGNAME="External_Ports_device_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="local_clock_generator" PORT="device_clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rst" SIGIS="undef" SIGNAME="External_Ports_rst">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="encoder_wrapper" PORT="rst"/>
+        <CONNECTION INSTANCE="local_clock_generator" PORT="rst"/>
+        <CONNECTION INSTANCE="single_ADC_frame_map" PORT="rst"/>
+        <CONNECTION INSTANCE="sync_decoder" PORT="rst"/>
+        <CONNECTION INSTANCE="transmitter_state" PORT="rst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="11" NAME="sample" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sample">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="MUX_2x1_0" PORT="A"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="scramble_enable" SIGIS="undef" SIGNAME="External_Ports_scramble_enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="alignment_substitutution" PORT="scramble_enable"/>
+        <CONNECTION INSTANCE="scrambler" PORT="scramble_enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="serial_data" SIGIS="undef" SIGNAME="serializer_serial_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="serializer" PORT="serial_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="test_enable" SIGIS="undef" SIGNAME="External_Ports_test_enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="MUX_2x1_0" PORT="sel"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ADC_pattern_generator" HWVERSION="1.0" INSTANCE="ADC_pattern_generator" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ADC_pattern_generator" VLNV="xilinx.com:module_ref:ADC_pattern_generator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_ADC_pattern_generator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="11" NAME="sample" RIGHT="0" SIGIS="undef" SIGNAME="ADC_pattern_generator_sample">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_2x1_0" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sample_clk" SIGIS="clk" SIGNAME="local_clock_generator_sample_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="sample_clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/CGS_Generator" HWVERSION="1.0" INSTANCE="CGS_Generator" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="CGS_Generator" VLNV="xilinx.com:module_ref:CGS_Generator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_CGS_Generator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="CGS_complete" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="control" SIGIS="undef" SIGNAME="CGS_Generator_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_control" PORT="A"/>
+            <CONNECTION INSTANCE="transmitter_state" PORT="CGS_complete"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="transmitter_state_enable_CGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="enable_CGS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="octet_out" RIGHT="0" SIGIS="undef" SIGNAME="CGS_Generator_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_octets" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ILAS_generator" HWVERSION="1.0" INSTANCE="ILAS_generator" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ILAS_generator" VLNV="xilinx.com:module_ref:ILAS_generator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_ILAS_generator_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="ILA_last" SIGIS="undef" SIGNAME="ILAS_generator_ILA_last">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="ILA_last"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="control" SIGIS="undef" SIGNAME="ILAS_generator_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_control" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="transmitter_state_enable_ILAS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="enable_ILAS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="octet_out" RIGHT="0" SIGIS="undef" SIGNAME="ILAS_generator_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_octets" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/MUX_2x1_0" HWVERSION="1.0" INSTANCE="MUX_2x1_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="MUX_2x1" VLNV="xilinx.com:module_ref:MUX_2x1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="width" VALUE="12"/>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_MUX_2x1_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="11" NAME="A" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sample">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sample"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="B" RIGHT="0" SIGIS="undef" SIGNAME="ADC_pattern_generator_sample">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ADC_pattern_generator" PORT="sample"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="C" RIGHT="0" SIGIS="undef" SIGNAME="MUX_2x1_0_C">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="single_ADC_frame_map" PORT="sample"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sel" SIGIS="undef" SIGNAME="External_Ports_test_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="test_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/MUX_control" HWVERSION="1.0" INSTANCE="MUX_control" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="MUX_3x1" VLNV="xilinx.com:module_ref:MUX_3x1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="width" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_MUX_3x1_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="A" RIGHT="0" SIGIS="undef" SIGNAME="CGS_Generator_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="control"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="B" RIGHT="0" SIGIS="undef" SIGNAME="ILAS_generator_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ILAS_generator" PORT="control"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="C" RIGHT="0" SIGIS="undef" SIGNAME="alignment_substitutution_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="control"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="MUX_control_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="encoder_wrapper" PORT="control"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="sel" RIGHT="0" SIGIS="undef" SIGNAME="transmitter_state_state_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="state_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/MUX_octets" HWVERSION="1.0" INSTANCE="MUX_octets" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="MUX_3x1" VLNV="xilinx.com:module_ref:MUX_3x1:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="width" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_MUX_3x1_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="A" RIGHT="0" SIGIS="undef" SIGNAME="CGS_Generator_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="octet_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="B" RIGHT="0" SIGIS="undef" SIGNAME="ILAS_generator_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ILAS_generator" PORT="octet_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="C" RIGHT="0" SIGIS="undef" SIGNAME="alignment_substitutution_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="octet_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="D" RIGHT="0" SIGIS="undef" SIGNAME="MUX_octets_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="encoder_wrapper" PORT="octet"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="sel" RIGHT="0" SIGIS="undef" SIGNAME="transmitter_state_state_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="state_out"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/alignment_substitutution" HWVERSION="1.0" INSTANCE="alignment_substitutution" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="alignment_substitution" VLNV="xilinx.com:module_ref:alignment_substitution:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_alignment_substituti_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="control" SIGIS="undef" SIGNAME="alignment_substitutution_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_control" PORT="C"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="frame_end" SIGIS="undef" SIGNAME="local_clock_generator_frame_end">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="frame_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="multiframe_end" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_end">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="multiframe_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="octet_in" RIGHT="0" SIGIS="undef" SIGNAME="scrambler_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scrambler" PORT="octet_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="octet_out" RIGHT="0" SIGIS="undef" SIGNAME="alignment_substitutution_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_octets" PORT="C"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="scramble_enable" SIGIS="undef" SIGNAME="External_Ports_scramble_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="scramble_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/encoder_wrapper" HWVERSION="1.0" INSTANCE="encoder_wrapper" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="encoder_wrapper" VLNV="xilinx.com:module_ref:encoder_wrapper:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_encoder_wrapper_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="RD" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="control" SIGIS="undef" SIGNAME="MUX_control_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_control" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="initial_RD" SIGIS="undef"/>
+        <PORT DIR="O" NAME="invalid_control" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="7" NAME="octet" RIGHT="0" SIGIS="undef" SIGNAME="MUX_octets_D">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_octets" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="9" NAME="symbol" RIGHT="0" SIGIS="undef" SIGNAME="encoder_wrapper_symbol">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="serializer" PORT="parallel_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/local_clock_generator" HWVERSION="1.0" INSTANCE="local_clock_generator" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="local_clock_generator" VLNV="xilinx.com:module_ref:local_clock_generator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="phase_adjust" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_local_clock_generator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="LMF_clk" SIGIS="clk"/>
+        <PORT DIR="I" NAME="SYSREF" SIGIS="undef" SIGNAME="External_Ports_SYSREF">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SYSREF"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="bit_clk" SIGIS="clk" SIGNAME="local_clock_generator_bit_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="serializer" PORT="bit_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="encoder_wrapper" PORT="character_clk"/>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="character_clk"/>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="character_clk"/>
+            <CONNECTION INSTANCE="ILAS_generator" PORT="character_clk"/>
+            <CONNECTION INSTANCE="single_ADC_frame_map" PORT="character_clk"/>
+            <CONNECTION INSTANCE="transmitter_state" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="1000000000" DIR="I" NAME="device_clk" SIGIS="clk" SIGNAME="External_Ports_device_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="device_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="frame_clk" SIGIS="clk" SIGNAME="local_clock_generator_frame_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sync_decoder" PORT="frame_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="frame_end" SIGIS="undef" SIGNAME="local_clock_generator_frame_end">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="frame_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="multiframe_end" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_end">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="multiframe_end"/>
+            <CONNECTION INSTANCE="transmitter_state" PORT="multiframe_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="sample_clk" SIGIS="clk" SIGNAME="local_clock_generator_sample_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="single_ADC_frame_map" PORT="sample_clk"/>
+            <CONNECTION INSTANCE="ADC_pattern_generator" PORT="sample_clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/scrambler" HWVERSION="1.0" INSTANCE="scrambler" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="scrambler" VLNV="xilinx.com:module_ref:scrambler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_scrambler_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="octet_in" RIGHT="0" SIGIS="undef" SIGNAME="single_ADC_frame_map_octet">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="single_ADC_frame_map" PORT="octet"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="octet_out" RIGHT="0" SIGIS="undef" SIGNAME="scrambler_octet_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="alignment_substitutution" PORT="octet_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="scramble_enable" SIGIS="undef" SIGNAME="External_Ports_scramble_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="scramble_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/serializer" HWVERSION="1.0" INSTANCE="serializer" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="serializer" VLNV="xilinx.com:module_ref:serializer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="LSB_first" VALUE="true"/>
+        <PARAMETER NAME="width" VALUE="10"/>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_serializer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="bit_clk" SIGIS="clk" SIGNAME="local_clock_generator_bit_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="bit_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="9" NAME="parallel_data" RIGHT="0" SIGIS="undef" SIGNAME="encoder_wrapper_symbol">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="encoder_wrapper" PORT="symbol"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="serial_data" SIGIS="undef" SIGNAME="serializer_serial_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="serial_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/single_ADC_frame_map" HWVERSION="1.0" INSTANCE="single_ADC_frame_map" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="single_ADC_frame_mapper" VLNV="xilinx.com:module_ref:single_ADC_frame_mapper:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_single_ADC_frame_map_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="octet" RIGHT="0" SIGIS="undef" SIGNAME="single_ADC_frame_map_octet">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scrambler" PORT="octet_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="sample" RIGHT="0" SIGIS="undef" SIGNAME="MUX_2x1_0_C">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_2x1_0" PORT="C"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sample_clk" SIGIS="clk" SIGNAME="local_clock_generator_sample_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="sample_clk"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/sync_decoder" HWVERSION="1.0" INSTANCE="sync_decoder" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="sync_decoder" VLNV="xilinx.com:module_ref:sync_decoder:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_sync_decoder_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="frame_clk" SIGIS="clk" SIGNAME="local_clock_generator_frame_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="frame_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sync" SIGIS="undef" SIGNAME="External_Ports_SYNC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SYNC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sync_request" SIGIS="undef" SIGNAME="sync_decoder_sync_request">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="sync_request"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/transmitter_state" HWVERSION="1.0" INSTANCE="transmitter_state" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="transmitter_state" VLNV="xilinx.com:module_ref:transmitter_state:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="transmitter_transmitter_state_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="CGS_complete" SIGIS="undef" SIGNAME="CGS_Generator_control">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="control"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ILA_last" SIGIS="undef" SIGNAME="ILAS_generator_ILA_last">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ILAS_generator" PORT="ILA_last"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="enable_CGS" SIGIS="undef" SIGNAME="transmitter_state_enable_CGS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="enable_ILAS" SIGIS="undef" SIGNAME="transmitter_state_enable_ILAS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ILAS_generator" PORT="enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="multiframe_end" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_end">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="multiframe_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="state_out" RIGHT="0" SIGIS="undef" SIGNAME="transmitter_state_state_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="MUX_control" PORT="sel"/>
+            <CONNECTION INSTANCE="MUX_octets" PORT="sel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sync_request" SIGIS="undef" SIGNAME="sync_decoder_sync_request">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sync_decoder" PORT="sync_request"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

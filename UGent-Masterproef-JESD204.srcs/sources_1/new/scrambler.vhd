@@ -14,7 +14,7 @@ architecture Behavioral of scrambler is
 begin
     process(scramble_enable, octet_in)
     begin
-        if scramble_enable = '1' then
+        if scramble_enable = '0' then
             -- Passthrough when not enabled
             octet_out <= octet_in;
         else

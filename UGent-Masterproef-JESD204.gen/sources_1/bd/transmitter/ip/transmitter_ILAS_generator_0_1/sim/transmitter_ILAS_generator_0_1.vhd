@@ -57,7 +57,6 @@ ENTITY transmitter_ILAS_generator_0_1 IS
   PORT (
     character_clk : IN STD_LOGIC;
     enable : IN STD_LOGIC;
-    rst : IN STD_LOGIC;
     octet_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     control : OUT STD_LOGIC;
     ILA_last : OUT STD_LOGIC
@@ -71,7 +70,6 @@ ARCHITECTURE transmitter_ILAS_generator_0_1_arch OF transmitter_ILAS_generator_0
     PORT (
       character_clk : IN STD_LOGIC;
       enable : IN STD_LOGIC;
-      rst : IN STD_LOGIC;
       octet_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       control : OUT STD_LOGIC;
       ILA_last : OUT STD_LOGIC
@@ -79,16 +77,13 @@ ARCHITECTURE transmitter_ILAS_generator_0_1_arch OF transmitter_ILAS_generator_0
   END COMPONENT ILAS_generator;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF character_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 character_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
 BEGIN
   U0 : ILAS_generator
     PORT MAP (
       character_clk => character_clk,
       enable => enable,
-      rst => rst,
       octet_out => octet_out,
       control => control,
       ILA_last => ILA_last

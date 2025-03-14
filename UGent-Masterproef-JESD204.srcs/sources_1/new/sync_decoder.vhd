@@ -5,9 +5,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity sync_decoder is
     Port (
         frame_clk: in std_logic;    -- Frame clock
-        rst: in std_logic;          -- Synchronus rest (Active high)
-        sync: in std_logic;         -- Sync (Active low), synchronised with frame clock
-        sync_request: out std_logic -- Sync request, detected when sync is low for 4 consecutive frame clock periods
+        rst: in std_logic;          -- Synchronus reset: active high
+        sync: in std_logic;         -- Sync: active low, synchronous with frame clock
+        sync_request: out std_logic -- Sync request: high when sync is low for 4 consecutive frame clock periods
     );
 end entity;
 

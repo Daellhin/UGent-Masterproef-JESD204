@@ -59,9 +59,9 @@ ENTITY transmitter_transmitter_state_0_0 IS
     sync_request : IN STD_LOGIC;
     ILA_last : IN STD_LOGIC;
     CGS_complete : IN STD_LOGIC;
-    multiframe_last : IN STD_LOGIC;
+    multiframe_end : IN STD_LOGIC;
     rst : IN STD_LOGIC;
-    enlable_CGS : OUT STD_LOGIC;
+    enable_CGS : OUT STD_LOGIC;
     enable_ILAS : OUT STD_LOGIC;
     state_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
   );
@@ -76,9 +76,9 @@ ARCHITECTURE transmitter_transmitter_state_0_0_arch OF transmitter_transmitter_s
       sync_request : IN STD_LOGIC;
       ILA_last : IN STD_LOGIC;
       CGS_complete : IN STD_LOGIC;
-      multiframe_last : IN STD_LOGIC;
+      multiframe_end : IN STD_LOGIC;
       rst : IN STD_LOGIC;
-      enlable_CGS : OUT STD_LOGIC;
+      enable_CGS : OUT STD_LOGIC;
       enable_ILAS : OUT STD_LOGIC;
       state_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
     );
@@ -96,9 +96,9 @@ BEGIN
       sync_request => sync_request,
       ILA_last => ILA_last,
       CGS_complete => CGS_complete,
-      multiframe_last => multiframe_last,
+      multiframe_end => multiframe_end,
       rst => rst,
-      enlable_CGS => enlable_CGS,
+      enable_CGS => enable_CGS,
       enable_ILAS => enable_ILAS,
       state_out => state_out
     );

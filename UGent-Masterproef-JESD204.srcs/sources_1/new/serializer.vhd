@@ -1,15 +1,15 @@
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity serializer is
     generic(
-        LSB_first: boolean := true;
-        width: integer := 10
+        LSB_first: boolean := true; -- true: LSB first, false: MSB first
+        width: integer := 10        -- Width of parallel data
     );
 	port (
-        bit_clk: in STD_LOGIC;
-		parallel_data: in STD_LOGIC_VECTOR(width-1 DOWNTO 0);
-		serial_data: out STD_LOGIC
+        bit_clk: in STD_LOGIC;                                -- Bit clock
+		parallel_data: in STD_LOGIC_VECTOR(width-1 DOWNTO 0); -- Parallel data
+		serial_data: out STD_LOGIC                            -- Serial data
     );
 end entity;
 

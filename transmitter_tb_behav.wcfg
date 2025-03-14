@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="transmitter_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="constants_package" />
+            <top_module name="transmitter_tb" />
+            <top_module name="utils_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,383.726 ns"></ZoomEndTime>
+      <Cursor1Time time="408.914 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/transmitter_tb/device_clk" type="logic">
+      <obj_property name="ElementShortName">device_clk</obj_property>
+      <obj_property name="ObjectShortName">device_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/character_clk" type="logic">
+      <obj_property name="ElementShortName">character_clk</obj_property>
+      <obj_property name="ObjectShortName">character_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/SYNC" type="logic">
+      <obj_property name="ElementShortName">SYNC</obj_property>
+      <obj_property name="ObjectShortName">SYNC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/SYSREF" type="logic">
+      <obj_property name="ElementShortName">SYSREF</obj_property>
+      <obj_property name="ObjectShortName">SYSREF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/sample" type="array">
+      <obj_property name="ElementShortName">sample[11:0]</obj_property>
+      <obj_property name="ObjectShortName">sample[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/scramble_enable" type="logic">
+      <obj_property name="ElementShortName">scramble_enable</obj_property>
+      <obj_property name="ObjectShortName">scramble_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/test_enable" type="logic">
+      <obj_property name="ElementShortName">test_enable</obj_property>
+      <obj_property name="ObjectShortName">test_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/serial_data" type="logic">
+      <obj_property name="ElementShortName">serial_data</obj_property>
+      <obj_property name="ObjectShortName">serial_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/U0/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/sync_decoder/U0/sync_counter" type="other">
+      <obj_property name="ElementShortName">sync_counter</obj_property>
+      <obj_property name="ObjectShortName">sync_counter</obj_property>
+   </wvobject>
+</wave_config>

@@ -34,8 +34,8 @@ begin
                     CGS_complete <= '1';
                 end if;
             else
-                octet_out <= "00000000";
-                control <= '0';
+                octet_out <= (others => '-');
+                control <= '-';
                 CGS_counter <= 0;
                 CGS_complete <= '0';
             end if;

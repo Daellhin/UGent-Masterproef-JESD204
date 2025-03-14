@@ -7,15 +7,15 @@ use xil_defaultlib.constants_package.all;
 
 entity transmitter_state is
     Port(
-        character_clk: in std_logic;
-        sync_request: in std_logic;
-        ILA_last: in std_logic;
-        CGS_complete: in std_logic;
-        multiframe_last: in std_logic;
-        rst: in std_logic;
-        enlable_CGS: out STD_LOGIC;
-        enable_ILAS : out STD_LOGIC;
-        state_out: out STD_LOGIC_VECTOR(1 downto 0)
+        character_clk: in std_logic;                -- Character clock
+        sync_request: in std_logic;                 -- Sync request
+        ILA_last: in std_logic;                     -- ILA last: high when last octet of ILA is sent
+        CGS_complete: in std_logic;                 -- CGS complete
+        multiframe_end: in std_logic;               -- Multiframe end: high at end of multiframe (one character clock period before LMF_clk rising edge)
+        rst: in std_logic;                          -- Synchronous reset: active high
+        enable_CGS: out STD_LOGIC;                  -- Enable CGS generator
+        enable_ILAS : out STD_LOGIC;                -- Enable ILAS generator
+        state_out: out STD_LOGIC_VECTOR(1 downto 0) -- State output: 00=WAIT_FOR_SYNC, 01=CGS, 10=ILA, 11=DATA
     );
 end transmitter_state;
 
@@ -35,7 +35,7 @@ begin
         end if;
     end process;
     
-    transitions: process(state, sync_request, CGS_complete, multiframe_last, ILA_last)
+    transitions: process(state, sync_request, CGS_complete, multiframe_end, ILA_last)
     begin
         case state is
             -- Transmitter continues waiting until: sync request is received from receiver
@@ -52,12 +52,12 @@ begin
             when CGS =>
                 if(sync_request = '1') then
                     next_state <= CGS;
-                elsif(sync_request = '0' and CGS_complete = '1' and multiframe_last = '1') then
+                elsif(sync_request = '0' and CGS_complete = '1' and multiframe_end = '1') then
                     next_state <= ILA;
                 else
                     next_state <= CGS;
                 end if;
-             -- Transmitter conitnues ILA until: 4 multiframes have been sent(notified by ILAS_generator)
+             -- Transmitter continues ILA until: 4 multiframes have been sent(notified by ILAS_generator)
              when ILA =>
                if(sync_request = '1') then
                     next_state <= CGS;
@@ -88,5 +88,8 @@ begin
                 state_out <= "11";
         end case;
     end process;
+    
+    enable_CGS <= '1' when state = CGS else '0';
+    enable_ILAS <= '1' when state = ILA else '0';
 
 end Behavioral;

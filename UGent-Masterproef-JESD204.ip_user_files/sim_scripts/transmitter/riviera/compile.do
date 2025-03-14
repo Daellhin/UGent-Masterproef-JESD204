@@ -9,11 +9,8 @@ vlib riviera/xil_defaultlib
 vmap xil_defaultlib riviera/xil_defaultlib
 
 vcom -work xil_defaultlib -93  -incr \
-"../../../bd/transmitter/ip/transmitter_clock_generator_0_0/sim/transmitter_clock_generator_0_0.vhd" \
 "../../../bd/transmitter/ip/transmitter_local_clock_generator_0_0/sim/transmitter_local_clock_generator_0_0.vhd" \
 "../../../bd/transmitter/ip/transmitter_scrambler_0_1/sim/transmitter_scrambler_0_1.vhd" \
-"../../../bd/transmitter/ip/transmitter_gigabit_transceiver_0_0/sim/transmitter_gigabit_transceiver_0_0.vhd" \
-"../../../bd/transmitter/ip/transmitter_alignment_substititu_0_3/sim/transmitter_alignment_substititu_0_3.vhd" \
 "../../../bd/transmitter/ip/transmitter_transmitter_state_0_0/sim/transmitter_transmitter_state_0_0.vhd" \
 "../../../bd/transmitter/ip/transmitter_ILAS_generator_0_1/sim/transmitter_ILAS_generator_0_1.vhd" \
 "../../../bd/transmitter/ip/transmitter_CGS_Generator_0_0/sim/transmitter_CGS_Generator_0_0.vhd" \
@@ -22,6 +19,10 @@ vcom -work xil_defaultlib -93  -incr \
 "../../../bd/transmitter/ip/transmitter_encoder_wrapper_0_0/sim/transmitter_encoder_wrapper_0_0.vhd" \
 "../../../bd/transmitter/ip/transmitter_single_ADC_frame_map_0_0/sim/transmitter_single_ADC_frame_map_0_0.vhd" \
 "../../../bd/transmitter/ip/transmitter_sync_decoder_0_0/sim/transmitter_sync_decoder_0_0.vhd" \
+"../../../bd/transmitter/ip/transmitter_serializer_0_0/sim/transmitter_serializer_0_0.vhd" \
+"../../../bd/transmitter/ip/transmitter_ADC_pattern_generator_0_0/sim/transmitter_ADC_pattern_generator_0_0.vhd" \
+"../../../bd/transmitter/ip/transmitter_alignment_substituti_0_1/sim/transmitter_alignment_substituti_0_1.vhd" \
+"../../../bd/transmitter/ip/transmitter_MUX_2x1_0_0/sim/transmitter_MUX_2x1_0_0.vhd" \
 "../../../bd/transmitter/sim/transmitter.vhd" \
 
 

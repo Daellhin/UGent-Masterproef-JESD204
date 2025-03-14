@@ -56,13 +56,15 @@ USE ieee.numeric_std.ALL;
 ENTITY transmitter_local_clock_generator_0_0 IS
   PORT (
     device_clk : IN STD_LOGIC;
-    sysref : IN STD_LOGIC;
+    rst : IN STD_LOGIC;
+    SYSREF : IN STD_LOGIC;
     sample_clk : OUT STD_LOGIC;
     frame_clk : OUT STD_LOGIC;
     character_clk : OUT STD_LOGIC;
     bit_clk : OUT STD_LOGIC;
     LMF_clk : OUT STD_LOGIC;
-    LMF_last : OUT STD_LOGIC
+    frame_end : OUT STD_LOGIC;
+    multiframe_end : OUT STD_LOGIC
   );
 END transmitter_local_clock_generator_0_0;
 
@@ -70,15 +72,20 @@ ARCHITECTURE transmitter_local_clock_generator_0_0_arch OF transmitter_local_clo
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF transmitter_local_clock_generator_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT local_clock_generator IS
+    GENERIC (
+      phase_adjust : INTEGER
+    );
     PORT (
       device_clk : IN STD_LOGIC;
-      sysref : IN STD_LOGIC;
+      rst : IN STD_LOGIC;
+      SYSREF : IN STD_LOGIC;
       sample_clk : OUT STD_LOGIC;
       frame_clk : OUT STD_LOGIC;
       character_clk : OUT STD_LOGIC;
       bit_clk : OUT STD_LOGIC;
       LMF_clk : OUT STD_LOGIC;
-      LMF_last : OUT STD_LOGIC
+      frame_end : OUT STD_LOGIC;
+      multiframe_end : OUT STD_LOGIC
     );
   END COMPONENT local_clock_generator;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -86,7 +93,7 @@ ARCHITECTURE transmitter_local_clock_generator_0_0_arch OF transmitter_local_clo
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF transmitter_local_clock_generator_0_0_arch : ARCHITECTURE IS "transmitter_local_clock_generator_0_0,local_clock_generator,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF transmitter_local_clock_generator_0_0_arch: ARCHITECTURE IS "transmitter_local_clock_generator_0_0,local_clock_generator,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=local_clock_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF transmitter_local_clock_generator_0_0_arch: ARCHITECTURE IS "transmitter_local_clock_generator_0_0,local_clock_generator,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=local_clock_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,phase_adjust=0}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF transmitter_local_clock_generator_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -97,22 +104,29 @@ ARCHITECTURE transmitter_local_clock_generator_0_0_arch OF transmitter_local_clo
   ATTRIBUTE X_INTERFACE_INFO OF bit_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 bit_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF character_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 character_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF device_clk: SIGNAL IS "XIL_INTERFACENAME device_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_clock_generator_0_0_device_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF device_clk: SIGNAL IS "XIL_INTERFACENAME device_clk, FREQ_HZ 1000000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_device_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF device_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 device_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF frame_clk: SIGNAL IS "XIL_INTERFACENAME frame_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF frame_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 frame_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF sample_clk: SIGNAL IS "XIL_INTERFACENAME sample_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_sample_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF sample_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 sample_clk CLK";
 BEGIN
   U0 : local_clock_generator
+    GENERIC MAP (
+      phase_adjust => 0
+    )
     PORT MAP (
       device_clk => device_clk,
-      sysref => sysref,
+      rst => rst,
+      SYSREF => SYSREF,
       sample_clk => sample_clk,
       frame_clk => frame_clk,
       character_clk => character_clk,
       bit_clk => bit_clk,
       LMF_clk => LMF_clk,
-      LMF_last => LMF_last
+      frame_end => frame_end,
+      multiframe_end => multiframe_end
     );
 END transmitter_local_clock_generator_0_0_arch;

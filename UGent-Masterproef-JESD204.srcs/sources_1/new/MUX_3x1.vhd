@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity MUX_3x1 is
     generic(
-        width: natural := 8                        -- Width of input and output vectors 
+        width: natural := 8 -- Width of input and output vectors 
     );
     Port( 
         A : in STD_LOGIC_VECTOR(width-1 downto 0); -- A input
@@ -15,7 +15,6 @@ entity MUX_3x1 is
 end entity;
 
 architecture Behavioral of MUX_3x1 is
-
 begin
     process(sel)
     begin
@@ -23,7 +22,7 @@ begin
             when "00" => D <= A;
             when "01" => D <= B;
             when "10" => D <= C;
-            when others => D <= (others => 'X');
+            when others => D <= (others => '-');
         end case;
     end process;
 end Behavioral;
