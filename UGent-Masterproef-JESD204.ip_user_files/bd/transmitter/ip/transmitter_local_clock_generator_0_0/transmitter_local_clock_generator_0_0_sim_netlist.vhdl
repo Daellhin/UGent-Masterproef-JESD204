@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Fri Mar 14 13:59:05 2025
+-- Date        : Fri Mar 21 10:01:45 2025
 -- Host        : G16 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lorin/git/UGent-Masterproef-JESD204/UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_local_clock_generator_0_0/transmitter_local_clock_generator_0_0_sim_netlist.vhdl
@@ -632,7 +632,7 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0 is
   attribute x_interface_info of character_clk : signal is "xilinx.com:signal:clock:1.0 character_clk CLK";
   attribute x_interface_parameter of character_clk : signal is "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   attribute x_interface_info of device_clk : signal is "xilinx.com:signal:clock:1.0 device_clk CLK";
-  attribute x_interface_parameter of device_clk : signal is "XIL_INTERFACENAME device_clk, FREQ_HZ 1000000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_device_clk, INSERT_VIP 0";
+  attribute x_interface_parameter of device_clk : signal is "XIL_INTERFACENAME device_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, INSERT_VIP 0";
   attribute x_interface_info of frame_clk : signal is "xilinx.com:signal:clock:1.0 frame_clk CLK";
   attribute x_interface_parameter of frame_clk : signal is "XIL_INTERFACENAME frame_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
   attribute x_interface_info of rst : signal is "xilinx.com:signal:reset:1.0 rst RST";

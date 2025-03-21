@@ -104,7 +104,7 @@ ARCHITECTURE transmitter_local_clock_generator_0_0_arch OF transmitter_local_clo
   ATTRIBUTE X_INTERFACE_INFO OF bit_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 bit_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF character_clk: SIGNAL IS "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF character_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 character_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF device_clk: SIGNAL IS "XIL_INTERFACENAME device_clk, FREQ_HZ 1000000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_device_clk, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF device_clk: SIGNAL IS "XIL_INTERFACENAME device_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF device_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 device_clk CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF frame_clk: SIGNAL IS "XIL_INTERFACENAME frame_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF frame_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 frame_clk CLK";

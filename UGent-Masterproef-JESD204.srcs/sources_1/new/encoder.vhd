@@ -18,7 +18,7 @@ entity encoder is
     Port(
         character_clk: in std_logic;              -- Charcacter clock, encoder samples octet on rising edge
         rst: in std_logic;                        -- Synchronous reset (Active High)
-        initial_RD: in std_logic;                 -- RD value at start or after reset(0=-1) (1=+1). Used for testing
+        initial_RD: in std_logic := '0';                 -- RD value at start or after reset(0=-1) (1=+1). Used for testing
         octet: in std_logic_vector(7 downto 0);   -- 8 bit input (XXX XXXXX)
         control: in std_logic;                    -- Are control dcharacters being sent (Active High)
         symbol: out std_logic_vector(9 downto 0); -- 10 bit output (XXXXXX XXXX)
@@ -151,19 +151,18 @@ begin
         
        variable sixBitCode: std_logic_vector(5 downto 0); -- lower 6 bits of symbol
        variable fourBitCode: std_logic_vector(3 downto 0); -- upper 4 bits of symbol
-       variable RD_i: std_logic;
+       variable RD_i: std_logic := '0'; -- TODO why not inialising
        variable ones_sixBitCode: integer;
        variable ones_fourBitCode: integer;
    begin
        if rising_edge(character_clk) then
            if rst = '1' then
-               RD <= initial_RD;
+               RD_i := initial_RD;
                symbol <= (others => '0');
                invalid_control <= '0';
            else
                lower5 := octet(4 downto 0);
                upper3 := octet(7 downto 5);
-               RD_i := RD;
                 
                sixBitCode := encode5b6b_data(lower5) when control = '0' else encode5b6b_control(lower5);
                ones_sixBitCode := count_ones(sixBitCode);
@@ -178,8 +177,8 @@ begin
                ones_fourBitCode := count_ones(fourBitCode);
                -- P7 A7 correction
                if (upper3 = "111" and (
-                   (RD = '0' and (lower5 = "10001" or lower5 = "10010" or lower5 = "10100")) or
-                   (RD = '1' and (lower5 = "01011" or lower5 = "01101" or lower5 = "01110"))
+                   (RD_i = '0' and (lower5 = "10001" or lower5 = "10010" or lower5 = "10100")) or
+                   (RD_i = '1' and (lower5 = "01011" or lower5 = "01101" or lower5 = "01110"))
                )) then
                    fourBitCode := "0111";
                end if;

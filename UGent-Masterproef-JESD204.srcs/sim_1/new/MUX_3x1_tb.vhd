@@ -14,9 +14,9 @@ architecture Behavioral of MUX_3x1_tb is
     signal A: STD_LOGIC_VECTOR(width-1 downto 0); -- A input
     signal B: STD_LOGIC_VECTOR(width-1 downto 0); -- B input
     signal C: STD_LOGIC_VECTOR(width-1 downto 0); -- C input
-    signal sel: STD_LOGIC_VECTOR(1 downto 0);     -- Select (0=A, 1=B, 2=C)
+    signal sel: STD_LOGIC_VECTOR(1 downto 0);     -- Select: 01=A, 10=B, 11=C
     -- Outputs
-    signal D: STD_LOGIC_VECTOR(width-1 downto 0); -- C output
+    signal D: STD_LOGIC_VECTOR(width-1 downto 0); -- D output
 begin
     DUT: entity work.MUX_3x1
     generic map(width)

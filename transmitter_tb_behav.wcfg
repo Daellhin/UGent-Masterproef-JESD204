@@ -12,22 +12,39 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,383.726 ns"></ZoomEndTime>
-      <Cursor1Time time="408.914 ns"></Cursor1Time>
+      <ZoomStartTime time="720.834 ns"></ZoomStartTime>
+      <ZoomEndTime time="5,455.835 ns"></ZoomEndTime>
+      <Cursor1Time time="3,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="209"></NameColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="13" />
    <wvobject fp_name="/transmitter_tb/device_clk" type="logic">
       <obj_property name="ElementShortName">device_clk</obj_property>
       <obj_property name="ObjectShortName">device_clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/character_clk" type="logic">
-      <obj_property name="ElementShortName">character_clk</obj_property>
-      <obj_property name="ObjectShortName">character_clk</obj_property>
+   <wvobject fp_name="group231" type="group">
+      <obj_property name="label">clock_generator</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/character_clk" type="logic">
+         <obj_property name="ElementShortName">character_clk</obj_property>
+         <obj_property name="ObjectShortName">character_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/U0/sample_clk" type="logic">
+         <obj_property name="ElementShortName">sample_clk</obj_property>
+         <obj_property name="ObjectShortName">sample_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/U0/frame_clk" type="logic">
+         <obj_property name="ElementShortName">frame_clk</obj_property>
+         <obj_property name="ObjectShortName">frame_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/local_clock_generator/U0/LMF_clk" type="logic">
+         <obj_property name="ElementShortName">LMF_clk</obj_property>
+         <obj_property name="ObjectShortName">LMF_clk</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/transmitter_tb/SYNC" type="logic">
       <obj_property name="ElementShortName">SYNC</obj_property>
@@ -53,16 +70,94 @@
       <obj_property name="ElementShortName">test_enable</obj_property>
       <obj_property name="ObjectShortName">test_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/transmitter_tb/serial_data" type="logic">
-      <obj_property name="ElementShortName">serial_data</obj_property>
-      <obj_property name="ObjectShortName">serial_data</obj_property>
+   <wvobject fp_name="group165" type="group">
+      <obj_property name="label">transmitter_state</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/U0/state" type="other">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/state_out" type="array">
+         <obj_property name="ElementShortName">state_out[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state_out[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/U0/enable_CGS" type="logic">
+         <obj_property name="ElementShortName">enable_CGS</obj_property>
+         <obj_property name="ObjectShortName">enable_CGS</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/enable_ILAS" type="logic">
+         <obj_property name="ElementShortName">enable_ILAS</obj_property>
+         <obj_property name="ObjectShortName">enable_ILAS</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/transmitter_state/U0/state" type="other">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
+   <wvobject fp_name="group159" type="group">
+      <obj_property name="label">MUX_octets</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/MUX_octets/A" type="array">
+         <obj_property name="ElementShortName">A[7:0]</obj_property>
+         <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/MUX_octets/B" type="array">
+         <obj_property name="ElementShortName">B[7:0]</obj_property>
+         <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/MUX_octets/C" type="array">
+         <obj_property name="ElementShortName">C[7:0]</obj_property>
+         <obj_property name="ObjectShortName">C[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/MUX_octets/sel" type="array">
+         <obj_property name="ElementShortName">sel[1:0]</obj_property>
+         <obj_property name="ObjectShortName">sel[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/MUX_octets/D" type="array">
+         <obj_property name="ElementShortName">D[7:0]</obj_property>
+         <obj_property name="ObjectShortName">D[7:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/sync_decoder/U0/sync_counter" type="other">
-      <obj_property name="ElementShortName">sync_counter</obj_property>
-      <obj_property name="ObjectShortName">sync_counter</obj_property>
+   <wvobject fp_name="group176" type="group">
+      <obj_property name="label">encoder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/encoder_wrapper/octet" type="array">
+         <obj_property name="ElementShortName">octet[7:0]</obj_property>
+         <obj_property name="ObjectShortName">octet[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/encoder_wrapper/control" type="logic">
+         <obj_property name="ElementShortName">control</obj_property>
+         <obj_property name="ObjectShortName">control</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/encoder_wrapper/symbol" type="array">
+         <obj_property name="ElementShortName">symbol[9:0]</obj_property>
+         <obj_property name="ObjectShortName">symbol[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/encoder_wrapper/RD" type="logic">
+         <obj_property name="ElementShortName">RD</obj_property>
+         <obj_property name="ObjectShortName">RD</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/encoder_wrapper/invalid_control" type="logic">
+         <obj_property name="ElementShortName">invalid_control</obj_property>
+         <obj_property name="ObjectShortName">invalid_control</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group157" type="group">
+      <obj_property name="label">serializer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/transmitter_tb/serial_data" type="logic">
+         <obj_property name="ElementShortName">serial_data</obj_property>
+         <obj_property name="ObjectShortName">serial_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/serializer/parallel_data" type="array">
+         <obj_property name="ElementShortName">parallel_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">parallel_data[9:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group219" type="group">
+      <obj_property name="label">pattern_genereator</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/transmitter_tb/DUT/transmitter_i/ADC_pattern_generator/sample" type="array">
+         <obj_property name="ElementShortName">sample[11:0]</obj_property>
+         <obj_property name="ObjectShortName">sample[11:0]</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>

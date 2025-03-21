@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Fri Feb 21 15:33:02 2025
+| Date         : Fri Mar 21 11:15:25 2025
 | Host         : G16
 | Design       : design_1
 | Device       : xcau15p-ffvb676-2-E-
@@ -11,24 +11,40 @@ For more information on clockInfo.txt clock routing debug file see https://suppo
 ***********************
 Running Pre-CRP Checker
 ***********************
-Number of global clocks: 1
-	Number of BUFGCE: 0
-	Number of BUFGCE_HDIO: 1
+Number of global clocks: 4
+	Number of BUFGCE: 4
+	Number of BUFGCE_HDIO: 0
 	Number of BUFG_CTRL: 0
 	Number of BUFGCE_DIV: 0
 	Number of BUFG_GT: 0
 	Number of BUFG_PS: 0
 	Number of BUFG_FABRIC: 0
-	Running suboptimal placement checker for 1 clocks (and their loads) which do not have the CLOCK_LOW_FANOUT property but have a fanout less than 2000...
+	Running suboptimal placement checker for 4 clocks (and their loads) which do not have the CLOCK_LOW_FANOUT property but have a fanout less than 2000...
 Pre-CRP Checker took 0 secs
 
 ********************************
 Clock Net Route Info (CRP Input)
 ********************************
-Clock 1: character_clk_IBUF_BUFG
-	Clock source type: BUFGCE_HDIO
+Clock 1: transmitter_i/local_clock_generator/U0/character_clk_counter_BUFG[2]
+	Clock source type: BUFGCE
 	Clock source region: X0Y2
 	initial rect ((0, 2), (0, 2))
+
+Clock 2: transmitter_i/local_clock_generator/U0/sample_clk_BUFGCE
+	Clock source type: BUFGCE
+	Clock source region: X0Y2
+	initial rect ((0, 2), (0, 2))
+
+Clock 3: transmitter_i/clk_wiz/inst/clk_out1
+	Clock source type: BUFGCE
+	Clock source region: X0Y1
+	initial rect ((0, 1), (0, 2))
+
+Clock 4: transmitter_i/clk_wiz/inst/clkfbout_buf_transmitter_clk_wiz_0_0
+	Clock source type: BUFGCE
+	Clock source region: X0Y1
+	Clock regions with locked loads: X0Y1 
+	initial rect ((0, 1), (0, 1))
 
 
 

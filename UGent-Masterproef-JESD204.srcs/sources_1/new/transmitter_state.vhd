@@ -22,6 +22,8 @@ end transmitter_state;
 architecture Behavioral of transmitter_state is
     type state_t is (WAIT_FOR_SYNC, CGS, ILA, DATA);
     signal state, next_state: state_t := WAIT_FOR_SYNC;
+    
+    signal enable_ILAS_i: std_logic;
 begin
 
     synchronisation: process(character_clk)
@@ -29,14 +31,17 @@ begin
         if rising_edge(character_clk) then
             if rst = '1' then
                 state <= WAIT_FOR_SYNC;
+                enable_ILAS <= '0';
             else
                 state <= next_state;
+                enable_ILAS <= enable_ILAS_i;
             end if;
         end if;
     end process;
     
     transitions: process(state, sync_request, CGS_complete, multiframe_end, ILA_last)
     begin
+        enable_ILAS_i <= '0';
         case state is
             -- Transmitter continues waiting until: sync request is received from receiver
             when WAIT_FOR_SYNC =>
@@ -54,6 +59,7 @@ begin
                     next_state <= CGS;
                 elsif(sync_request = '0' and CGS_complete = '1' and multiframe_end = '1') then
                     next_state <= ILA;
+                    enable_ILAS_i <= '1';
                 else
                     next_state <= CGS;
                 end if;
@@ -65,6 +71,7 @@ begin
                     next_state <= DATA;
                 else
                     next_state <= ILA;
+                    enable_ILAS_i <= '1';
                 end if;
              when DATA =>
                  if(sync_request = '1') then
@@ -90,6 +97,5 @@ begin
     end process;
     
     enable_CGS <= '1' when state = CGS else '0';
-    enable_ILAS <= '1' when state = ILA else '0';
 
 end Behavioral;

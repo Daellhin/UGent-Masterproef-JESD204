@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Fri Mar 14 13:59:06 2025
+-- Date        : Fri Mar 21 10:02:20 2025
 -- Host        : G16 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lorin/git/UGent-Masterproef-JESD204/UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_transmitter_state_0_0/transmitter_transmitter_state_0_0_sim_netlist.vhdl
@@ -17,13 +17,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity transmitter_transmitter_state_0_0_transmitter_state is
   port (
-    enable_ILAS : out STD_LOGIC;
-    state_out : out STD_LOGIC_VECTOR ( 1 downto 0 );
     enable_CGS : out STD_LOGIC;
+    state_out : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    enable_ILAS : out STD_LOGIC;
     rst : in STD_LOGIC;
     character_clk : in STD_LOGIC;
-    CGS_complete : in STD_LOGIC;
     multiframe_end : in STD_LOGIC;
+    CGS_complete : in STD_LOGIC;
     sync_request : in STD_LOGIC;
     ILA_last : in STD_LOGIC
   );
@@ -32,6 +32,7 @@ entity transmitter_transmitter_state_0_0_transmitter_state is
 end transmitter_transmitter_state_0_0_transmitter_state;
 
 architecture STRUCTURE of transmitter_transmitter_state_0_0_transmitter_state is
+  signal \enable_ILAS_i__0\ : STD_LOGIC;
   signal next_state : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^state_out\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
@@ -39,7 +40,7 @@ architecture STRUCTURE of transmitter_transmitter_state_0_0_transmitter_state is
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[0]\ : label is "wait_for_sync:00,ila:10,data:11,cgs:01";
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_reg[1]\ : label is "wait_for_sync:00,ila:10,data:11,cgs:01";
-  attribute SOFT_HLUTNM of enable_ILAS_INST_0 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of enable_CGS_INST_0 : label is "soft_lutpair0";
 begin
   state_out(1 downto 0) <= \^state_out\(1 downto 0);
 \FSM_sequential_state[0]_i_1\: unisim.vcomponents.LUT6
@@ -98,14 +99,26 @@ enable_CGS_INST_0: unisim.vcomponents.LUT2
       I1 => \^state_out\(1),
       O => enable_CGS
     );
-enable_ILAS_INST_0: unisim.vcomponents.LUT2
+enable_ILAS_i: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"2"
+      INIT => X"0000008000000F80"
     )
         port map (
-      I0 => \^state_out\(1),
-      I1 => \^state_out\(0),
-      O => enable_ILAS
+      I0 => multiframe_end,
+      I1 => CGS_complete,
+      I2 => \^state_out\(0),
+      I3 => \^state_out\(1),
+      I4 => sync_request,
+      I5 => ILA_last,
+      O => \enable_ILAS_i__0\
+    );
+enable_ILAS_reg: unisim.vcomponents.FDRE
+     port map (
+      C => character_clk,
+      CE => '1',
+      D => \enable_ILAS_i__0\,
+      Q => enable_ILAS,
+      R => rst
     );
 end STRUCTURE;
 library IEEE;

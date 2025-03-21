@@ -60,20 +60,21 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="850"/>
+    <Option Name="DSABoardId" Val="basys3"/>
+    <Option Name="WTXSimLaunchSim" Val="938"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="13"/>
-    <Option Name="WTModelSimExportSim" Val="13"/>
-    <Option Name="WTQuestaExportSim" Val="13"/>
+    <Option Name="WTXSimExportSim" Val="19"/>
+    <Option Name="WTModelSimExportSim" Val="19"/>
+    <Option Name="WTQuestaExportSim" Val="19"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="13"/>
-    <Option Name="WTRivieraExportSim" Val="13"/>
-    <Option Name="WTActivehdlExportSim" Val="13"/>
+    <Option Name="WTVcsExportSim" Val="19"/>
+    <Option Name="WTRivieraExportSim" Val="19"/>
+    <Option Name="WTActivehdlExportSim" Val="19"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -214,6 +215,9 @@
         <CompFileExtendedInfo CompFileName="transmitter.bd" FileRelPathName="ip/transmitter_alignment_substituti_0_1/transmitter_alignment_substituti_0_1.xci">
           <Proxy FileSetName="transmitter_alignment_substituti_0_1"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="transmitter.bd" FileRelPathName="ip/transmitter_clk_wiz_0_0/transmitter_clk_wiz_0_0.xci">
+          <Proxy FileSetName="transmitter_clk_wiz_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="transmitter.bd" FileRelPathName="ip/transmitter_encoder_wrapper_0_0/transmitter_encoder_wrapper_0_0.xci">
           <Proxy FileSetName="transmitter_encoder_wrapper_0_0"/>
         </CompFileExtendedInfo>
@@ -235,6 +239,9 @@
         <CompFileExtendedInfo CompFileName="transmitter.bd" FileRelPathName="ip/transmitter_transmitter_state_0_0/transmitter_transmitter_state_0_0.xci">
           <Proxy FileSetName="transmitter_transmitter_state_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="transmitter.bd" FileRelPathName="ip/transmitter_util_vector_logic_0_0/transmitter_util_vector_logic_0_0.xci">
+          <Proxy FileSetName="transmitter_util_vector_logic_0_0"/>
+        </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/transmitter/hdl/transmitter_wrapper.vhd">
         <FileInfo>
@@ -252,20 +259,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/invalid_code_check.v">
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/decoder_5b6b.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/invalid_code_check.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/decoder_5b6b.v"/>
           <Attr Name="ImportTime" Val="1732196382"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/decoder_5b6b.v">
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/decoder_8b10b.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/decoder_5b6b.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/decoder_8b10b.v"/>
           <Attr Name="ImportTime" Val="1732196382"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -282,10 +289,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/encoder_8b10b.v">
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/encoder_3b4b.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/encoder_8b10b.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/encoder_3b4b.v"/>
           <Attr Name="ImportTime" Val="1732196382"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -302,20 +309,30 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/encoder_3b4b.v">
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/encoder_8b10b.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/encoder_3b4b.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/encoder_8b10b.v"/>
           <Attr Name="ImportTime" Val="1732196382"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/decoder_8b10b.v">
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/invalid_code_check.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/decoder_8b10b.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/invalid_code_check.v"/>
+          <Attr Name="ImportTime" Val="1732196382"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/v1r0/invalid_k_detector.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/invalid_k_detector.v"/>
           <Attr Name="ImportTime" Val="1732196382"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -342,16 +359,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/v1r0/invalid_k_detector.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../Downloads/v1r0/invalid_k_detector.v"/>
-          <Attr Name="ImportTime" Val="1732196382"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="transmitter_wrapper"/>
@@ -359,7 +366,14 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/new/test_fpga.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/test_fpga.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
@@ -367,6 +381,13 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/transmitter_tb.vhd">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/MUX_3x1_tb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -436,13 +457,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/new/encoder_tb.vhd">
         <FileInfo SFType="VHDL2008">
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/new/MUX_3x1_tb.vhd">
-        <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -518,6 +532,14 @@
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
       <Filter Type="Utils"/>
+      <File Path="$PSRCDIR/utils_1/imports/synth_1/ILAS_generator.dcp">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedInSteps" Val="synth_1"/>
+          <Attr Name="AutoDcp" Val="1"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
@@ -539,22 +561,16 @@
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
-    <FileSet Name="transmitter_encoder_wrapper_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_encoder_wrapper_0_0" RelGenDir="$PGENDIR/transmitter_encoder_wrapper_0_0">
+    <FileSet Name="basys3" Type="Constrs" RelSrcDir="$PSRCDIR/basys3" RelGenDir="$PGENDIR/basys3">
+      <File Path="$PSRCDIR/basys3/new/test_fpga.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
-        <Option Name="TopModule" Val="transmitter_encoder_wrapper_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="transmitter_serializer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_serializer_0_0" RelGenDir="$PGENDIR/transmitter_serializer_0_0">
-      <Config>
-        <Option Name="TopModule" Val="transmitter_serializer_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="transmitter_MUX_2x1_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_MUX_2x1_0_0" RelGenDir="$PGENDIR/transmitter_MUX_2x1_0_0">
-      <Config>
-        <Option Name="TopModule" Val="transmitter_MUX_2x1_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/basys3/new/test_fpga.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
     <FileSet Name="transmitter_local_clock_generator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_local_clock_generator_0_0" RelGenDir="$PGENDIR/transmitter_local_clock_generator_0_0">
@@ -599,6 +615,12 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="transmitter_encoder_wrapper_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_encoder_wrapper_0_0" RelGenDir="$PGENDIR/transmitter_encoder_wrapper_0_0">
+      <Config>
+        <Option Name="TopModule" Val="transmitter_encoder_wrapper_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
     <FileSet Name="transmitter_single_ADC_frame_map_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_single_ADC_frame_map_0_0" RelGenDir="$PGENDIR/transmitter_single_ADC_frame_map_0_0">
       <Config>
         <Option Name="TopModule" Val="transmitter_single_ADC_frame_map_0_0"/>
@@ -611,6 +633,12 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="transmitter_serializer_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_serializer_0_0" RelGenDir="$PGENDIR/transmitter_serializer_0_0">
+      <Config>
+        <Option Name="TopModule" Val="transmitter_serializer_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
     <FileSet Name="transmitter_ADC_pattern_generator_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_ADC_pattern_generator_0_0" RelGenDir="$PGENDIR/transmitter_ADC_pattern_generator_0_0">
       <Config>
         <Option Name="TopModule" Val="transmitter_ADC_pattern_generator_0_0"/>
@@ -620,6 +648,36 @@
     <FileSet Name="transmitter_alignment_substituti_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_alignment_substituti_0_1" RelGenDir="$PGENDIR/transmitter_alignment_substituti_0_1">
       <Config>
         <Option Name="TopModule" Val="transmitter_alignment_substituti_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="transmitter_MUX_2x1_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_MUX_2x1_0_0" RelGenDir="$PGENDIR/transmitter_MUX_2x1_0_0">
+      <Config>
+        <Option Name="TopModule" Val="transmitter_MUX_2x1_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="transmitter_clk_wiz_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_clk_wiz_0_0" RelGenDir="$PGENDIR/transmitter_clk_wiz_0_0">
+      <Config>
+        <Option Name="TopModule" Val="transmitter_clk_wiz_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="artix_ultrascale" Type="Constrs" RelSrcDir="$PSRCDIR/artix_ultrascale" RelGenDir="$PGENDIR/artix_ultrascale">
+      <File Path="$PSRCDIR/artix_ultrascale/new/test_fpga.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/artix_ultrascale/new/test_fpga.xdc"/>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="transmitter_util_vector_logic_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/transmitter_util_vector_logic_0_0" RelGenDir="$PGENDIR/transmitter_util_vector_logic_0_0">
+      <Config>
+        <Option Name="TopModule" Val="transmitter_util_vector_logic_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -643,9 +701,95 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="22">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1" ParallelReportGen="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="artix_ultrascale" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ILAS_generator.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_local_clock_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_local_clock_generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_local_clock_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_local_clock_generator_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_local_clock_generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_local_clock_generator_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_scrambler_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_scrambler_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_scrambler_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_scrambler_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_scrambler_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_scrambler_0_1_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_transmitter_state_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_transmitter_state_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_transmitter_state_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_transmitter_state_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_transmitter_state_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_transmitter_state_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_ILAS_generator_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_ILAS_generator_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_ILAS_generator_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_ILAS_generator_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_ILAS_generator_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_ILAS_generator_0_1_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_CGS_Generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_CGS_Generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_CGS_Generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_CGS_Generator_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_CGS_Generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_CGS_Generator_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_MUX_3x1_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_3x1_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_3x1_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_MUX_3x1_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_MUX_3x1_1_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_3x1_1_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_3x1_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_MUX_3x1_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_1_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -655,7 +799,33 @@
     </Run>
     <Run Id="transmitter_encoder_wrapper_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_encoder_wrapper_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_encoder_wrapper_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_encoder_wrapper_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_single_ADC_frame_map_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_single_ADC_frame_map_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_single_ADC_frame_map_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_single_ADC_frame_map_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_sync_decoder_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_sync_decoder_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_sync_decoder_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_sync_decoder_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_sync_decoder_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_sync_decoder_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -665,7 +835,9 @@
     </Run>
     <Run Id="transmitter_serializer_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_serializer_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_serializer_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_serializer_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -673,157 +845,71 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="transmitter_MUX_2x1_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_2x1_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_2x1_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_local_clock_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_local_clock_generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_local_clock_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_local_clock_generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_local_clock_generator_0_0_synth_1" ParallelReportGen="true">
+    <Run Id="transmitter_ADC_pattern_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_ADC_pattern_generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_ADC_pattern_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_ADC_pattern_generator_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
           <Desc>Vivado Synthesis Defaults</Desc>
         </StratHandle>
         <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_scrambler_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_scrambler_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_scrambler_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_scrambler_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_scrambler_0_1_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_transmitter_state_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_transmitter_state_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_transmitter_state_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_transmitter_state_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_transmitter_state_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_ILAS_generator_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_ILAS_generator_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_ILAS_generator_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_ILAS_generator_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_ILAS_generator_0_1_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_CGS_Generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_CGS_Generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_CGS_Generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_CGS_Generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_CGS_Generator_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_MUX_3x1_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_3x1_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_3x1_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_MUX_3x1_1_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_3x1_1_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_3x1_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_3x1_1_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_single_ADC_frame_map_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_single_ADC_frame_map_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_single_ADC_frame_map_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_sync_decoder_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_sync_decoder_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_sync_decoder_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_sync_decoder_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_sync_decoder_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_ADC_pattern_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_ADC_pattern_generator_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_ADC_pattern_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_alignment_substituti_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_alignment_substituti_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_alignment_substituti_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 11 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="transmitter_encoder_wrapper_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_encoder_wrapper_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_encoder_wrapper_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_impl_1" ParallelReportGen="true">
+    <Run Id="transmitter_alignment_substituti_0_1_synth_1" Type="Ft3:Synth" SrcSet="transmitter_alignment_substituti_0_1" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_alignment_substituti_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_alignment_substituti_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_MUX_2x1_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_MUX_2x1_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_2x1_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_MUX_2x1_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_clk_wiz_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_clk_wiz_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_clk_wiz_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_clk_wiz_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_clk_wiz_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_clk_wiz_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_util_vector_logic_0_0_synth_1" Type="Ft3:Synth" SrcSet="transmitter_util_vector_logic_0_0" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_util_vector_logic_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/transmitter_util_vector_logic_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_util_vector_logic_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_util_vector_logic_0_0_synth_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="artix_ultrascale" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 14 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -832,42 +918,11 @@
         <Step Id="phys_opt_design"/>
         <Step Id="route_design"/>
         <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
+        <Step Id="write_bitstream">
+          <Option Id="BinFile">1</Option>
+        </Step>
       </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_serializer_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_serializer_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_serializer_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="transmitter_MUX_2x1_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_2x1_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_MUX_2x1_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -1005,6 +1060,25 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="transmitter_encoder_wrapper_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_encoder_wrapper_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_encoder_wrapper_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_encoder_wrapper_0_0_impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="transmitter_single_ADC_frame_map_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_single_ADC_frame_map_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_single_ADC_frame_map_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_single_ADC_frame_map_0_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
@@ -1043,6 +1117,25 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="transmitter_serializer_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_serializer_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_serializer_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_serializer_0_0_impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="transmitter_ADC_pattern_generator_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_ADC_pattern_generator_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_ADC_pattern_generator_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_ADC_pattern_generator_0_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
@@ -1063,6 +1156,63 @@
       <RQSFiles/>
     </Run>
     <Run Id="transmitter_alignment_substituti_0_1_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_alignment_substituti_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_alignment_substituti_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_alignment_substituti_0_1_impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_MUX_2x1_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_MUX_2x1_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_MUX_2x1_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_MUX_2x1_0_0_impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_clk_wiz_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_clk_wiz_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_clk_wiz_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_clk_wiz_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_clk_wiz_0_0_impl_1" ParallelReportGen="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="transmitter_util_vector_logic_0_0_impl_1" Type="Ft2:EntireDesign" Part="xcau15p-ffvb676-2-e" ConstrsSet="transmitter_util_vector_logic_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="transmitter_util_vector_logic_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/transmitter_util_vector_logic_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/transmitter_util_vector_logic_0_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
           <Desc>Default settings for Implementation.</Desc>

@@ -17,7 +17,7 @@ architecture Behavioral of serializer is
 begin
 	process(bit_clk)
 		variable count: integer range 0 to width := 0;
-        variable data_buffer: STD_LOGIC_VECTOR(width-1 DOWNTO 0);
+        variable data_buffer: STD_LOGIC_VECTOR(width-1 DOWNTO 0) := (others => 'U');
 	begin
 		if(rising_edge(bit_clk)) then
             if count = 0 then

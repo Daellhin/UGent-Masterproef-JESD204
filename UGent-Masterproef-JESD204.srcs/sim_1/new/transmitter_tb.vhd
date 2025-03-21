@@ -33,16 +33,19 @@ begin
     
     -- Setup signals
     generate_clk(device_clk, device_clk_period);
-    rst <= '0';
     test_enable <= '1';
     scramble_enable <= '0';
     
     process begin
         SYNC <= '1';
         SYSREF <= '0';
+        rst <= '1';
         wait for frame_clk_period;
         SYNC <= '0';
-        wait for frame_clk_period*5;
+        rst <= '0';
+        wait for frame_clk_period*10;
+        SYNC <= '1';
+        wait for frame_clk_period*100;
     end process;
 
 end Behavioral;
