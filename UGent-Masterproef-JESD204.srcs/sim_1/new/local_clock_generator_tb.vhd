@@ -23,10 +23,11 @@ architecture Behavioral of local_clock_generator_tb is
     signal bit_clk: STD_LOGIC;        -- Bit clock
     signal LMF_clk: STD_LOGIC;        -- Local multiframe clock
     signal frame_end: STD_LOGIC;      -- High at end of frame (one character clock period before frame_clk rising edge)
+    signal multiframe_start: STD_LOGIC; -- High at end of multiframe (one character clock period before LMF_clk rising edge)
     signal multiframe_end: STD_LOGIC; -- High at end of multiframe (one character clock period before LMF_clk rising edge)
 begin
     DUT: entity work.local_clock_generator port map(
-        device_clk, rst, sysref, sample_clk, frame_clk, character_clk, bit_clk, LMF_clk, frame_end, multiframe_end
+        device_clk, rst, sysref, sample_clk, frame_clk, character_clk, bit_clk, LMF_clk, frame_end, multiframe_start, multiframe_end
     );
    
     -- Setup signals

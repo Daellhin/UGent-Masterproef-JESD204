@@ -19,6 +19,7 @@ entity local_clock_generator is
         bit_clk: out STD_LOGIC;       -- Bit clock
         LMF_clk: out STD_LOGIC;       -- Local multiframe clock
         frame_end: out STD_LOGIC;     -- High at end of frame (one character clock period before frame_clk rising edge)
+        multiframe_start: out STD_LOGIC;
         multiframe_end: out STD_LOGIC -- High at end of multiframe (one character clock period before LMF_clk rising edge)
     );
 end entity;
@@ -64,6 +65,6 @@ begin
     frame_clk <= '1' when frame_clk_counter < (F*8)/2 else '0';
     LMF_clk <= '1' when LMF_clk_counter < (K*F*8)/2 else '0';
     frame_end <= '1' when frame_clk_counter = (F*8)-1 else '0';
-    multiframe_end <= '1' when LMF_clk_counter = (K*F*8)-1 else '0';
-    
+    multiframe_start <= '1' when LMF_clk_counter = 0 else '0';
+    multiframe_end <= '1' when LMF_clk_counter > (K*F*8)-9 else '0';
 end Behavioral;

@@ -10,22 +10,100 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0"></ZoomStartTime>
-      <ZoomEndTime time="13"></ZoomEndTime>
+      <ZoomEndTime time="1,631"></ZoomEndTime>
       <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="169"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="185"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="1" />
-   <wvobject fp_name="rst_IBUF" type="logic">
+   <WVObjectSize size="12" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="state_out_0_OBUF" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">rst_IBUF</obj_property>
-      <obj_property name="ObjectShortName">rst_IBUF</obj_property>
+      <obj_property name="ElementShortName">state_out_0_OBUF[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state_out_0_OBUF[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/CGS_Generator_CGS_complete" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/CGS_Generator_CGS_complete</obj_property>
+      <obj_property name="ObjectShortName">CGS_Generator_CGS_complete</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/ILAS_generator_ILA_last" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/ILAS_generator_ILA_last</obj_property>
+      <obj_property name="ObjectShortName">ILAS_generator_ILA_last</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/local_clock_generator_multiframe_end" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/local_clock_generator_multiframe_end</obj_property>
+      <obj_property name="ObjectShortName">local_clock_generator_multiframe_end</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/local_clock_generator_character_clk" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/local_clock_generator_character_clk</obj_property>
+      <obj_property name="ObjectShortName">local_clock_generator_character_clk</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/serial_data" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/serial_data</obj_property>
+      <obj_property name="ObjectShortName">serial_data</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/state_out_0" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/state_out_0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state_out_0[1:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/sync_decoder/sync" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/sync_decoder/sync</obj_property>
+      <obj_property name="ObjectShortName">sync</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/sync_decoder_0_sync_request" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/sync_decoder_0_sync_request</obj_property>
+      <obj_property name="ObjectShortName">sync_decoder_0_sync_request</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/transmitter_state_0_enable_ILAS" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/transmitter_state_0_enable_ILAS</obj_property>
+      <obj_property name="ObjectShortName">transmitter_state_0_enable_ILAS</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/transmitter_state_enlable_CGS" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/transmitter_state_enlable_CGS</obj_property>
+      <obj_property name="ObjectShortName">transmitter_state_enlable_CGS</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="transmitter_i/util_vector_logic_0_Res_0" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">transmitter_i/util_vector_logic_0_Res_0</obj_property>
+      <obj_property name="ObjectShortName">util_vector_logic_0_Res_0</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

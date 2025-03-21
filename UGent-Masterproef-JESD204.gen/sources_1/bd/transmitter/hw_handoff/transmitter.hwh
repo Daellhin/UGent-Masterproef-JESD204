@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 21 11:09:59 2025" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Mar 21 12:27:19 2025" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="kintexuplus" DEVICE="xcau15p" NAME="transmitter" PACKAGE="ffvb676" SPEEDGRADE="-2"/>
 
@@ -96,7 +96,11 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" NAME="CGS_complete" SIGIS="undef"/>
+        <PORT DIR="O" NAME="CGS_complete" SIGIS="undef" SIGNAME="CGS_Generator_CGS_complete">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="CGS_complete"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="character_clk" SIGIS="clk" SIGNAME="local_clock_generator_character_clk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="local_clock_generator" PORT="character_clk"/>
@@ -105,7 +109,6 @@
         <PORT DIR="O" NAME="control" SIGIS="undef" SIGNAME="CGS_Generator_control">
           <CONNECTIONS>
             <CONNECTION INSTANCE="MUX_control" PORT="A"/>
-            <CONNECTION INSTANCE="transmitter_state" PORT="CGS_complete"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="transmitter_state_enable_CGS">
@@ -996,7 +999,11 @@
         <PORT DIR="O" NAME="multiframe_end" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_end">
           <CONNECTIONS>
             <CONNECTION INSTANCE="alignment_substitutution" PORT="multiframe_end"/>
-            <CONNECTION INSTANCE="transmitter_state" PORT="multiframe_end"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="multiframe_start" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_start">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="transmitter_state" PORT="multiframe_start"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="util_vector_logic_0_Res">
@@ -1137,9 +1144,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="CGS_complete" SIGIS="undef" SIGNAME="CGS_Generator_control">
+        <PORT DIR="I" NAME="CGS_complete" SIGIS="undef" SIGNAME="CGS_Generator_CGS_complete">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="CGS_Generator" PORT="control"/>
+            <CONNECTION INSTANCE="CGS_Generator" PORT="CGS_complete"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ILA_last" SIGIS="undef" SIGNAME="ILAS_generator_ILA_last">
@@ -1162,9 +1169,9 @@
             <CONNECTION INSTANCE="ILAS_generator" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="multiframe_end" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_end">
+        <PORT DIR="I" NAME="multiframe_start" SIGIS="undef" SIGNAME="local_clock_generator_multiframe_start">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="local_clock_generator" PORT="multiframe_end"/>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="multiframe_start"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="util_vector_logic_0_Res">
@@ -1205,10 +1212,10 @@
         <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
           <CONNECTIONS>
             <CONNECTION INSTANCE="sync_decoder" PORT="rst"/>
-            <CONNECTION INSTANCE="local_clock_generator" PORT="rst"/>
-            <CONNECTION INSTANCE="transmitter_state" PORT="rst"/>
             <CONNECTION INSTANCE="single_ADC_frame_map" PORT="rst"/>
             <CONNECTION INSTANCE="encoder_wrapper" PORT="rst"/>
+            <CONNECTION INSTANCE="transmitter_state" PORT="rst"/>
+            <CONNECTION INSTANCE="local_clock_generator" PORT="rst"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

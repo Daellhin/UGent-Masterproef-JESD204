@@ -11,7 +11,7 @@ entity transmitter_state is
         sync_request: in std_logic;                 -- Sync request
         ILA_last: in std_logic;                     -- ILA last: high when last octet of ILA is sent
         CGS_complete: in std_logic;                 -- CGS complete
-        multiframe_end: in std_logic;               -- Multiframe end: high at end of multiframe (one character clock period before LMF_clk rising edge)
+        multiframe_start: in std_logic;               -- Multiframe end: high at end of multiframe (one character clock period before LMF_clk rising edge)
         rst: in std_logic;                          -- Synchronous reset: active high
         enable_CGS: out STD_LOGIC;                  -- Enable CGS generator
         enable_ILAS : out STD_LOGIC;                -- Enable ILAS generator
@@ -39,7 +39,7 @@ begin
         end if;
     end process;
     
-    transitions: process(state, sync_request, CGS_complete, multiframe_end, ILA_last)
+    transitions: process(state, sync_request, CGS_complete, multiframe_start, ILA_last)
     begin
         enable_ILAS_i <= '0';
         case state is
@@ -57,7 +57,7 @@ begin
             when CGS =>
                 if(sync_request = '1') then
                     next_state <= CGS;
-                elsif(sync_request = '0' and CGS_complete = '1' and multiframe_end = '1') then
+                elsif(sync_request = '0' and CGS_complete = '1' and multiframe_start = '1') then
                     next_state <= ILA;
                     enable_ILAS_i <= '1';
                 else

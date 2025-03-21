@@ -41,7 +41,7 @@
         "sync_request": [ { "direction": "in" } ],
         "ILA_last": [ { "direction": "in" } ],
         "CGS_complete": [ { "direction": "in" } ],
-        "multiframe_end": [ { "direction": "in" } ],
+        "multiframe_start": [ { "direction": "in" } ],
         "rst": [ { "direction": "in" } ],
         "enable_CGS": [ { "direction": "out" } ],
         "enable_ILAS": [ { "direction": "out" } ],

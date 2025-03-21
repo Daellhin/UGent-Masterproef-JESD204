@@ -38,14 +38,14 @@ vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../UGent-Masterproef-JESD204.
 "../../../bd/transmitter/ip/transmitter_clk_wiz_0_0/transmitter_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/transmitter/ip/transmitter_clk_wiz_0_0/transmitter_clk_wiz_0_0.v" \
 
-vcom -work xil_defaultlib -93  \
-"../../../bd/transmitter/sim/transmitter.vhd" \
-
 vlog -work util_vector_logic_v2_0_4  -v2k5 "+incdir+../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ipshared/3242" -l xpm -l xil_defaultlib -l util_vector_logic_v2_0_4 \
 "../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ipshared/fd7b/hdl/util_vector_logic_v2_0_vl_rfs.v" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ipshared/3242" -l xpm -l xil_defaultlib -l util_vector_logic_v2_0_4 \
 "../../../bd/transmitter/ip/transmitter_util_vector_logic_0_0/sim/transmitter_util_vector_logic_0_0.v" \
+
+vcom -work xil_defaultlib -93  \
+"../../../bd/transmitter/sim/transmitter.vhd" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

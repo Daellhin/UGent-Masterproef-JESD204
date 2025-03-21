@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Fri Mar 21 10:02:20 2025
+-- Date        : Fri Mar 21 12:28:00 2025
 -- Host        : G16 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lorin/git/UGent-Masterproef-JESD204/UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_transmitter_state_0_0/transmitter_transmitter_state_0_0_sim_netlist.vhdl
@@ -22,7 +22,7 @@ entity transmitter_transmitter_state_0_0_transmitter_state is
     enable_ILAS : out STD_LOGIC;
     rst : in STD_LOGIC;
     character_clk : in STD_LOGIC;
-    multiframe_end : in STD_LOGIC;
+    multiframe_start : in STD_LOGIC;
     CGS_complete : in STD_LOGIC;
     sync_request : in STD_LOGIC;
     ILA_last : in STD_LOGIC
@@ -52,7 +52,7 @@ begin
       I1 => \^state_out\(1),
       I2 => sync_request,
       I3 => \^state_out\(0),
-      I4 => multiframe_end,
+      I4 => multiframe_start,
       I5 => CGS_complete,
       O => next_state(0)
     );
@@ -62,7 +62,7 @@ begin
     )
         port map (
       I0 => CGS_complete,
-      I1 => multiframe_end,
+      I1 => multiframe_start,
       I2 => \^state_out\(0),
       I3 => \^state_out\(1),
       I4 => sync_request,
@@ -104,7 +104,7 @@ enable_ILAS_i: unisim.vcomponents.LUT6
       INIT => X"0000008000000F80"
     )
         port map (
-      I0 => multiframe_end,
+      I0 => multiframe_start,
       I1 => CGS_complete,
       I2 => \^state_out\(0),
       I3 => \^state_out\(1),
@@ -131,7 +131,7 @@ entity transmitter_transmitter_state_0_0 is
     sync_request : in STD_LOGIC;
     ILA_last : in STD_LOGIC;
     CGS_complete : in STD_LOGIC;
-    multiframe_end : in STD_LOGIC;
+    multiframe_start : in STD_LOGIC;
     rst : in STD_LOGIC;
     enable_CGS : out STD_LOGIC;
     enable_ILAS : out STD_LOGIC;
@@ -164,7 +164,7 @@ U0: entity work.transmitter_transmitter_state_0_0_transmitter_state
       character_clk => character_clk,
       enable_CGS => enable_CGS,
       enable_ILAS => enable_ILAS,
-      multiframe_end => multiframe_end,
+      multiframe_start => multiframe_start,
       rst => rst,
       state_out(1 downto 0) => state_out(1 downto 0),
       sync_request => sync_request

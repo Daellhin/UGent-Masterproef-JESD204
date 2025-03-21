@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Fri Mar 21 10:01:45 2025
+-- Date        : Fri Mar 21 12:28:00 2025
 -- Host        : G16 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lorin/git/UGent-Masterproef-JESD204/UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_local_clock_generator_0_0/transmitter_local_clock_generator_0_0_sim_netlist.vhdl
@@ -21,8 +21,9 @@ entity transmitter_local_clock_generator_0_0_local_clock_generator is
     frame_clk : out STD_LOGIC;
     frame_end : out STD_LOGIC;
     character_clk : out STD_LOGIC;
-    multiframe_end : out STD_LOGIC;
     LMF_clk : out STD_LOGIC;
+    multiframe_start : out STD_LOGIC;
+    multiframe_end : out STD_LOGIC;
     SYSREF : in STD_LOGIC;
     device_clk : in STD_LOGIC;
     rst : in STD_LOGIC
@@ -38,6 +39,7 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0_local_clock_gene
   signal \LMF_clk_counter[5]_i_1_n_0\ : STD_LOGIC;
   signal \LMF_clk_counter[6]_i_1_n_0\ : STD_LOGIC;
   signal \LMF_clk_counter[7]_i_1_n_0\ : STD_LOGIC;
+  signal \LMF_clk_counter[7]_i_2_n_0\ : STD_LOGIC;
   signal LMF_clk_counter_0 : STD_LOGIC;
   signal SYSREF_prev : STD_LOGIC;
   signal character_clk_counter : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -49,42 +51,46 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0_local_clock_gene
   signal \frame_clk_counter[2]_i_1_n_0\ : STD_LOGIC;
   signal \frame_clk_counter[3]_i_1_n_0\ : STD_LOGIC;
   signal \frame_clk_counter[4]_i_1_n_0\ : STD_LOGIC;
-  signal multiframe_end_INST_0_i_1_n_0 : STD_LOGIC;
+  signal multiframe_start_INST_0_i_1_n_0 : STD_LOGIC;
   signal p_0_in : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal sample_clk_counter : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal sample_clk_counter1 : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \LMF_clk_counter[1]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[2]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[3]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of LMF_clk_INST_0 : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[0]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[1]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[2]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[3]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \LMF_clk_counter[4]_i_1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \LMF_clk_counter[5]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \LMF_clk_counter[6]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \character_clk_counter[1]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \character_clk_counter[2]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \character_clk_counter[1]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \character_clk_counter[2]_i_1\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of frame_clk0 : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \frame_clk_counter[1]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \frame_clk_counter[2]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \frame_clk_counter[1]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \frame_clk_counter[2]_i_1\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \frame_clk_counter[3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \frame_clk_counter[4]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \frame_end__0\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of multiframe_end_INST_0 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of multiframe_end_INST_0_i_1 : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of sample_clk0 : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \sample_clk_counter[1]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \sample_clk_counter[2]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \sample_clk_counter[3]_i_2\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of multiframe_end_INST_0 : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of multiframe_start_INST_0_i_1 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of sample_clk0 : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \sample_clk_counter[1]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \sample_clk_counter[2]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \sample_clk_counter[3]_i_2\ : label is "soft_lutpair5";
 begin
 LMF_clk_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"000100FF"
+      INIT => X"00005557"
     )
         port map (
-      I0 => LMF_clk_counter(4),
+      I0 => LMF_clk_counter(6),
       I1 => LMF_clk_counter(5),
-      I2 => LMF_clk_counter(3),
-      I3 => LMF_clk_counter(7),
-      I4 => LMF_clk_counter(6),
+      I2 => LMF_clk_counter(4),
+      I3 => LMF_clk_counter(3),
+      I4 => LMF_clk_counter(7),
       O => LMF_clk
     );
 \LMF_clk_counter[0]_i_1\: unisim.vcomponents.LUT1
@@ -109,8 +115,8 @@ LMF_clk_INST_0: unisim.vcomponents.LUT5
       INIT => X"78"
     )
         port map (
-      I0 => LMF_clk_counter(1),
-      I1 => LMF_clk_counter(0),
+      I0 => LMF_clk_counter(0),
+      I1 => LMF_clk_counter(1),
       I2 => LMF_clk_counter(2),
       O => LMF_clk_counter1(2)
     );
@@ -119,59 +125,70 @@ LMF_clk_INST_0: unisim.vcomponents.LUT5
       INIT => X"7F80"
     )
         port map (
-      I0 => LMF_clk_counter(2),
+      I0 => LMF_clk_counter(1),
       I1 => LMF_clk_counter(0),
-      I2 => LMF_clk_counter(1),
+      I2 => LMF_clk_counter(2),
       I3 => LMF_clk_counter(3),
       O => LMF_clk_counter1(3)
     );
 \LMF_clk_counter[4]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"66621999"
+      INIT => X"700F0FE0"
     )
         port map (
-      I0 => LMF_clk_counter(4),
-      I1 => LMF_clk_counter(7),
-      I2 => LMF_clk_counter(5),
-      I3 => LMF_clk_counter(6),
-      I4 => multiframe_end_INST_0_i_1_n_0,
+      I0 => LMF_clk_counter(6),
+      I1 => LMF_clk_counter(5),
+      I2 => LMF_clk_counter(7),
+      I3 => LMF_clk_counter(4),
+      I4 => \LMF_clk_counter[7]_i_2_n_0\,
       O => \LMF_clk_counter[4]_i_1_n_0\
     );
 \LMF_clk_counter[5]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"9A268AA6"
+      INIT => X"3D42BD40"
     )
         port map (
-      I0 => LMF_clk_counter(5),
+      I0 => LMF_clk_counter(7),
       I1 => LMF_clk_counter(4),
-      I2 => LMF_clk_counter(7),
-      I3 => multiframe_end_INST_0_i_1_n_0,
+      I2 => \LMF_clk_counter[7]_i_2_n_0\,
+      I3 => LMF_clk_counter(5),
       I4 => LMF_clk_counter(6),
       O => \LMF_clk_counter[5]_i_1_n_0\
     );
 \LMF_clk_counter[6]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FB005F20"
+      INIT => X"3FFD4000"
     )
         port map (
-      I0 => LMF_clk_counter(4),
-      I1 => LMF_clk_counter(7),
-      I2 => LMF_clk_counter(5),
-      I3 => LMF_clk_counter(6),
-      I4 => multiframe_end_INST_0_i_1_n_0,
+      I0 => LMF_clk_counter(7),
+      I1 => LMF_clk_counter(4),
+      I2 => \LMF_clk_counter[7]_i_2_n_0\,
+      I3 => LMF_clk_counter(5),
+      I4 => LMF_clk_counter(6),
       O => \LMF_clk_counter[6]_i_1_n_0\
     );
 \LMF_clk_counter[7]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"10000008"
+      INIT => X"40000002"
     )
         port map (
-      I0 => multiframe_end_INST_0_i_1_n_0,
-      I1 => LMF_clk_counter(7),
-      I2 => LMF_clk_counter(4),
-      I3 => LMF_clk_counter(6),
-      I4 => LMF_clk_counter(5),
+      I0 => LMF_clk_counter(7),
+      I1 => LMF_clk_counter(4),
+      I2 => \LMF_clk_counter[7]_i_2_n_0\,
+      I3 => LMF_clk_counter(5),
+      I4 => LMF_clk_counter(6),
       O => \LMF_clk_counter[7]_i_1_n_0\
+    );
+\LMF_clk_counter[7]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => LMF_clk_counter(3),
+      I1 => LMF_clk_counter(1),
+      I2 => LMF_clk_counter(0),
+      I3 => LMF_clk_counter(2),
+      O => \LMF_clk_counter[7]_i_2_n_0\
     );
 \LMF_clk_counter_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -467,26 +484,38 @@ frame_clk0: unisim.vcomponents.LUT3
     );
 multiframe_end_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00000004"
+      INIT => X"AAAAAAA8"
     )
         port map (
-      I0 => LMF_clk_counter(4),
-      I1 => LMF_clk_counter(7),
-      I2 => LMF_clk_counter(5),
-      I3 => LMF_clk_counter(6),
-      I4 => multiframe_end_INST_0_i_1_n_0,
+      I0 => LMF_clk_counter(7),
+      I1 => LMF_clk_counter(5),
+      I2 => LMF_clk_counter(6),
+      I3 => LMF_clk_counter(3),
+      I4 => LMF_clk_counter(4),
       O => multiframe_end
     );
-multiframe_end_INST_0_i_1: unisim.vcomponents.LUT4
+multiframe_start_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"7FFF"
+      INIT => X"00000001"
+    )
+        port map (
+      I0 => LMF_clk_counter(5),
+      I1 => LMF_clk_counter(4),
+      I2 => LMF_clk_counter(6),
+      I3 => LMF_clk_counter(7),
+      I4 => multiframe_start_INST_0_i_1_n_0,
+      O => multiframe_start
+    );
+multiframe_start_INST_0_i_1: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
     )
         port map (
       I0 => LMF_clk_counter(2),
-      I1 => LMF_clk_counter(0),
-      I2 => LMF_clk_counter(1),
-      I3 => LMF_clk_counter(3),
-      O => multiframe_end_INST_0_i_1_n_0
+      I1 => LMF_clk_counter(3),
+      I2 => LMF_clk_counter(0),
+      I3 => LMF_clk_counter(1),
+      O => multiframe_start_INST_0_i_1_n_0
     );
 sample_clk0: unisim.vcomponents.LUT3
     generic map(
@@ -607,6 +636,7 @@ entity transmitter_local_clock_generator_0_0 is
     bit_clk : out STD_LOGIC;
     LMF_clk : out STD_LOGIC;
     frame_end : out STD_LOGIC;
+    multiframe_start : out STD_LOGIC;
     multiframe_end : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -651,6 +681,7 @@ U0: entity work.transmitter_local_clock_generator_0_0_local_clock_generator
       frame_clk => frame_clk,
       frame_end => frame_end,
       multiframe_end => multiframe_end,
+      multiframe_start => multiframe_start,
       rst => rst,
       sample_clk => sample_clk
     );

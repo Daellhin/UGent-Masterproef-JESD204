@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
---Date        : Fri Mar 21 11:09:58 2025
+--Date        : Fri Mar 21 12:27:18 2025
 --Host        : G16 running 64-bit major release  (build 9200)
 --Command     : generate_target transmitter.bd
 --Design      : transmitter
@@ -29,7 +29,7 @@ use UNISIM.VCOMPONENTS.ALL;
     test_enable : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of transmitter : entity is "transmitter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=transmitter,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=16,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=2,""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=1,synth_mode=Hierarchical}";
+  attribute CORE_GENERATION_INFO of transmitter : entity is "transmitter,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=transmitter,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=16,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=2,""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""=1,synth_mode=Hierarchical}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of transmitter : entity is "transmitter.hwdef";
 end transmitter;
@@ -46,6 +46,7 @@ architecture STRUCTURE of transmitter is
     bit_clk : out STD_LOGIC;
     LMF_clk : out STD_LOGIC;
     frame_end : out STD_LOGIC;
+    multiframe_start : out STD_LOGIC;
     multiframe_end : out STD_LOGIC
   );
   end component transmitter_local_clock_generator_0_0;
@@ -62,7 +63,7 @@ architecture STRUCTURE of transmitter is
     sync_request : in STD_LOGIC;
     ILA_last : in STD_LOGIC;
     CGS_complete : in STD_LOGIC;
-    multiframe_end : in STD_LOGIC;
+    multiframe_start : in STD_LOGIC;
     rst : in STD_LOGIC;
     enable_CGS : out STD_LOGIC;
     enable_ILAS : out STD_LOGIC;
@@ -180,8 +181,9 @@ architecture STRUCTURE of transmitter is
   );
   end component transmitter_util_vector_logic_0_0;
   signal ADC_pattern_generator_sample : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal CGS_Generator_0_control : STD_LOGIC;
   signal CGS_Generator_0_octet_out : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal CGS_Generator_CGS_complete : STD_LOGIC;
+  signal CGS_Generator_control : STD_LOGIC;
   signal CLK_IN1_D_0_1_CLK_N : STD_LOGIC;
   signal CLK_IN1_D_0_1_CLK_P : STD_LOGIC;
   signal ILAS_generator_ILA_last : STD_LOGIC;
@@ -201,6 +203,7 @@ architecture STRUCTURE of transmitter is
   signal local_clock_generator_frame_clk : STD_LOGIC;
   signal local_clock_generator_frame_end : STD_LOGIC;
   signal local_clock_generator_multiframe_end : STD_LOGIC;
+  signal local_clock_generator_multiframe_start : STD_LOGIC;
   signal local_clock_generator_sample_clk : STD_LOGIC;
   signal rst_1 : STD_LOGIC;
   signal sample_1 : STD_LOGIC_VECTOR ( 11 downto 0 );
@@ -214,7 +217,6 @@ architecture STRUCTURE of transmitter is
   signal transmitter_state_enlable_CGS : STD_LOGIC;
   signal transmitter_state_state_out : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_CGS_Generator_CGS_complete_UNCONNECTED : STD_LOGIC;
   signal NLW_encoder_wrapper_RD_UNCONNECTED : STD_LOGIC;
   signal NLW_encoder_wrapper_invalid_control_UNCONNECTED : STD_LOGIC;
   signal NLW_local_clock_generator_LMF_clk_UNCONNECTED : STD_LOGIC;
@@ -241,9 +243,9 @@ ADC_pattern_generator: component transmitter_ADC_pattern_generator_0_0
     );
 CGS_Generator: component transmitter_CGS_Generator_0_0
      port map (
-      CGS_complete => NLW_CGS_Generator_CGS_complete_UNCONNECTED,
+      CGS_complete => CGS_Generator_CGS_complete,
       character_clk => local_clock_generator_character_clk,
-      control => CGS_Generator_0_control,
+      control => CGS_Generator_control,
       enable => transmitter_state_enlable_CGS,
       octet_out(7 downto 0) => CGS_Generator_0_octet_out(7 downto 0)
     );
@@ -264,7 +266,7 @@ MUX_2x1_0: component transmitter_MUX_2x1_0_0
     );
 MUX_control: component transmitter_MUX_3x1_0_0
      port map (
-      A(0) => CGS_Generator_0_control,
+      A(0) => CGS_Generator_control,
       B(0) => ILAS_generator_control,
       C(0) => alignment_substituti_0_control,
       D(0) => MUX_control_D(0),
@@ -315,6 +317,7 @@ local_clock_generator: component transmitter_local_clock_generator_0_0
       frame_clk => local_clock_generator_frame_clk,
       frame_end => local_clock_generator_frame_end,
       multiframe_end => local_clock_generator_multiframe_end,
+      multiframe_start => local_clock_generator_multiframe_start,
       rst => util_vector_logic_0_Res(0),
       sample_clk => local_clock_generator_sample_clk
     );
@@ -347,12 +350,12 @@ sync_decoder: component transmitter_sync_decoder_0_0
     );
 transmitter_state: component transmitter_transmitter_state_0_0
      port map (
-      CGS_complete => CGS_Generator_0_control,
+      CGS_complete => CGS_Generator_CGS_complete,
       ILA_last => ILAS_generator_ILA_last,
       character_clk => local_clock_generator_character_clk,
       enable_CGS => transmitter_state_enlable_CGS,
       enable_ILAS => transmitter_state_0_enable_ILAS,
-      multiframe_end => local_clock_generator_multiframe_end,
+      multiframe_start => local_clock_generator_multiframe_start,
       rst => util_vector_logic_0_Res(0),
       state_out(1 downto 0) => transmitter_state_state_out(1 downto 0),
       sync_request => sync_decoder_0_sync_request

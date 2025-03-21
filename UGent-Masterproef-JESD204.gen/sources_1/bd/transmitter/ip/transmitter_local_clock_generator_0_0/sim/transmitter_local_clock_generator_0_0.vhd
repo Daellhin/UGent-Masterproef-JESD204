@@ -64,6 +64,7 @@ ENTITY transmitter_local_clock_generator_0_0 IS
     bit_clk : OUT STD_LOGIC;
     LMF_clk : OUT STD_LOGIC;
     frame_end : OUT STD_LOGIC;
+    multiframe_start : OUT STD_LOGIC;
     multiframe_end : OUT STD_LOGIC
   );
 END transmitter_local_clock_generator_0_0;
@@ -85,6 +86,7 @@ ARCHITECTURE transmitter_local_clock_generator_0_0_arch OF transmitter_local_clo
       bit_clk : OUT STD_LOGIC;
       LMF_clk : OUT STD_LOGIC;
       frame_end : OUT STD_LOGIC;
+      multiframe_start : OUT STD_LOGIC;
       multiframe_end : OUT STD_LOGIC
     );
   END COMPONENT local_clock_generator;
@@ -119,6 +121,7 @@ BEGIN
       bit_clk => bit_clk,
       LMF_clk => LMF_clk,
       frame_end => frame_end,
+      multiframe_start => multiframe_start,
       multiframe_end => multiframe_end
     );
 END transmitter_local_clock_generator_0_0_arch;

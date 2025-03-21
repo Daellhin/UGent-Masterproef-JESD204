@@ -119,6 +119,10 @@
               "PHASE": {
                 "value": "0.0",
                 "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_clk_out1",
+                "value_src": "default_prop"
               }
             }
           },
@@ -150,6 +154,9 @@
             "direction": "O"
           },
           "frame_end": {
+            "direction": "O"
+          },
+          "multiframe_start": {
             "direction": "O"
           },
           "multiframe_end": {
@@ -219,7 +226,7 @@
           "CGS_complete": {
             "direction": "I"
           },
-          "multiframe_end": {
+          "multiframe_start": {
             "direction": "I"
           },
           "rst": {
@@ -779,17 +786,22 @@
           "MUX_2x1_0/B"
         ]
       },
-      "CGS_Generator_0_control": {
-        "ports": [
-          "CGS_Generator/control",
-          "MUX_control/A",
-          "transmitter_state/CGS_complete"
-        ]
-      },
       "CGS_Generator_0_octet_out": {
         "ports": [
           "CGS_Generator/octet_out",
           "MUX_octets/A"
+        ]
+      },
+      "CGS_Generator_CGS_complete": {
+        "ports": [
+          "CGS_Generator/CGS_complete",
+          "transmitter_state/CGS_complete"
+        ]
+      },
+      "CGS_Generator_control": {
+        "ports": [
+          "CGS_Generator/control",
+          "MUX_control/A"
         ]
       },
       "ILAS_generator_ILA_last": {
@@ -896,8 +908,13 @@
       "local_clock_generator_multiframe_end": {
         "ports": [
           "local_clock_generator/multiframe_end",
-          "alignment_substitutution/multiframe_end",
-          "transmitter_state/multiframe_end"
+          "alignment_substitutution/multiframe_end"
+        ]
+      },
+      "local_clock_generator_multiframe_start": {
+        "ports": [
+          "local_clock_generator/multiframe_start",
+          "transmitter_state/multiframe_start"
         ]
       },
       "local_clock_generator_sample_clk": {
@@ -980,10 +997,10 @@
         "ports": [
           "util_vector_logic_0/Res",
           "sync_decoder/rst",
-          "local_clock_generator/rst",
-          "transmitter_state/rst",
           "single_ADC_frame_map/rst",
-          "encoder_wrapper/rst"
+          "encoder_wrapper/rst",
+          "transmitter_state/rst",
+          "local_clock_generator/rst"
         ]
       }
     },
