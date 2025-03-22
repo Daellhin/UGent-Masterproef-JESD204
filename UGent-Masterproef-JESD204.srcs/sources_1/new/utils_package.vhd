@@ -7,7 +7,9 @@ package utils_package is
     type outputs_t is array (natural range <>, natural range <>) of std_logic;
     
     function reverse(input: std_logic_vector) return std_logic_vector;
+    
     procedure generate_clk(signal clk: out std_logic; constant period : in time; constant start_delay: in time:= 0ps);
+    procedure generate_diff_clk(signal clk_p: out std_logic; signal clk_n: out std_logic; constant period : in time; constant start_delay: in time:= 0ps);
     procedure read_binary_from_file(constant file_name: in string; signal data: out std_logic_vector; signal finished: out boolean; constant delay : in time;  constant fist_delay_offset : in time := 1ps);
     procedure println(file file_handle : text; constant string_to_print: in string);
 end package;
@@ -34,6 +36,26 @@ package body utils_package is
             clk <= '1';
             wait for period / 2;
             clk <= '0';
+            wait for period / 2;
+        end loop;
+    end procedure;
+    
+    procedure generate_diff_clk(
+        signal clk_p: out std_logic;
+        signal clk_n: out std_logic;
+        constant period: in time;
+        constant start_delay: in time := 0ps
+    ) is
+    begin
+        clk_p <= '0';
+        clk_n <= '1';
+        wait for start_delay;
+        loop
+            clk_p <= '1';
+            clk_n <= '0';
+            wait for period / 2;
+            clk_p <= '0';
+            clk_n <= '1';
             wait for period / 2;
         end loop;
     end procedure;

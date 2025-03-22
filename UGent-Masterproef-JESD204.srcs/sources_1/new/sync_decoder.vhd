@@ -12,7 +12,7 @@ entity sync_decoder is
 end entity;
 
 architecture Behavioral of sync_decoder is
-    signal sync_counter: natural;
+    signal sync_counter: natural := 0;
 begin
 
     -- Sync request is detected when sync is low for 4 consecutive frame clock periods

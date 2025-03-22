@@ -25,10 +25,11 @@ architecture Behavioral of transmitter_tb is
     signal test_enable: STD_LOGIC;
     -- Outputs
     signal serial_data: STD_LOGIC;
-   
+    signal state_out : STD_LOGIC_VECTOR(1 downto 0);
 begin
+    -- If simulation seems off, check if Vivado changed transmitter_wrapper port definition
     DUT: entity work.transmitter_wrapper port map(
-        SYNC, SYSREF, device_clk, rst, sample, scramble_enable, serial_data, test_enable
+        SYNC, SYSREF, device_clk, rst, sample, scramble_enable, serial_data, state_out, test_enable
     );
     
     -- Setup signals
@@ -39,7 +40,7 @@ begin
     process begin
         SYNC <= '1';
         SYSREF <= '0';
-        rst <= '1';
+        rst <= '1'; -- reset at start
         wait for frame_clk_period;
         SYNC <= '0';
         rst <= '0';

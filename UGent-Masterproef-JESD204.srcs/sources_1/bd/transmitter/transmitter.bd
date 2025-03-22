@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x52E2F37268B14DD8",
+      "boundary_crc": "0x880E19E233FE06A8",
       "device": "xcau15p-ffvb676-2-e",
       "gen_directory": "../../../../UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter",
       "name": "transmitter",
@@ -24,36 +24,7 @@
       "serializer": "",
       "ADC_pattern_generator": "",
       "alignment_substitutution": "",
-      "MUX_2x1_0": "",
-      "clk_wiz": "",
-      "util_vector_logic_0": ""
-    },
-    "interface_ports": {
-      "CLK_IN1_D": {
-        "mode": "Slave",
-        "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
-        "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
-        "parameters": {
-          "CAN_DEBUG": {
-            "value": "false",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          }
-        },
-        "port_maps": {
-          "CLK_N": {
-            "physical_name": "CLK_IN1_D_clk_n",
-            "direction": "I"
-          },
-          "CLK_P": {
-            "physical_name": "CLK_IN1_D_clk_p",
-            "direction": "I"
-          }
-        }
-      }
+      "MUX_2x1_0": ""
     },
     "ports": {
       "SYNC": {
@@ -63,17 +34,7 @@
         "direction": "I"
       },
       "rst": {
-        "direction": "I",
-        "parameters": {
-          "PortType": {
-            "value": "undef",
-            "value_src": "ip_prop"
-          },
-          "PortType.PROP_SRC": {
-            "value": "false",
-            "value_src": "ip_prop"
-          }
-        }
+        "direction": "I"
       },
       "sample": {
         "direction": "I",
@@ -89,10 +50,36 @@
       "test_enable": {
         "direction": "I"
       },
-      "state_out_0": {
+      "state_out": {
         "direction": "O",
         "left": "1",
         "right": "0"
+      },
+      "device_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "transmitter_device_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -112,16 +99,8 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_clk_out1",
+                "value": "transmitter_device_clk",
                 "value_src": "default_prop"
               }
             }
@@ -688,95 +667,6 @@
             "right": "0"
           }
         }
-      },
-      "clk_wiz": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "ip_revision": "14",
-        "xci_name": "transmitter_clk_wiz_0_0",
-        "xci_path": "ip\\transmitter_clk_wiz_0_0\\transmitter_clk_wiz_0_0.xci",
-        "inst_hier_path": "clk_wiz",
-        "parameters": {
-          "CLKOUT1_DRIVES": {
-            "value": "BUFG"
-          },
-          "CLKOUT1_JITTER": {
-            "value": "130.958"
-          },
-          "CLKOUT1_PHASE_ERROR": {
-            "value": "98.575"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "100"
-          },
-          "CLKOUT2_DRIVES": {
-            "value": "Buffer"
-          },
-          "CLKOUT3_DRIVES": {
-            "value": "Buffer"
-          },
-          "CLKOUT4_DRIVES": {
-            "value": "Buffer"
-          },
-          "CLKOUT5_DRIVES": {
-            "value": "Buffer"
-          },
-          "CLKOUT6_DRIVES": {
-            "value": "Buffer"
-          },
-          "CLKOUT7_DRIVES": {
-            "value": "Buffer"
-          },
-          "MMCM_CLKFBOUT_MULT_F": {
-            "value": "12.000"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "12.000"
-          },
-          "MMCM_COMPENSATION": {
-            "value": "AUTO"
-          },
-          "MMCM_DIVCLK_DIVIDE": {
-            "value": "1"
-          },
-          "PHASESHIFT_MODE": {
-            "value": "WAVEFORM"
-          },
-          "PRIM_SOURCE": {
-            "value": "Differential_clock_capable_pin"
-          },
-          "USE_LOCKED": {
-            "value": "false"
-          },
-          "USE_PHASE_ALIGNMENT": {
-            "value": "true"
-          },
-          "USE_RESET": {
-            "value": "false"
-          }
-        }
-      },
-      "util_vector_logic_0": {
-        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
-        "ip_revision": "4",
-        "xci_name": "transmitter_util_vector_logic_0_0",
-        "xci_path": "ip\\transmitter_util_vector_logic_0_0\\transmitter_util_vector_logic_0_0.xci",
-        "inst_hier_path": "util_vector_logic_0",
-        "parameters": {
-          "C_OPERATION": {
-            "value": "not"
-          },
-          "C_SIZE": {
-            "value": "1"
-          }
-        }
-      }
-    },
-    "interface_nets": {
-      "CLK_IN1_D_0_1": {
-        "interface_ports": [
-          "CLK_IN1_D",
-          "clk_wiz/CLK_IN1_D"
-        ]
       }
     },
     "nets": {
@@ -864,9 +754,9 @@
           "MUX_octets/C"
         ]
       },
-      "clk_wiz_0_clk_out1": {
+      "device_clk_0_1": {
         "ports": [
-          "clk_wiz/clk_out1",
+          "device_clk",
           "local_clock_generator/device_clk"
         ]
       },
@@ -922,12 +812,6 @@
           "local_clock_generator/sample_clk",
           "ADC_pattern_generator/sample_clk",
           "single_ADC_frame_map/sample_clk"
-        ]
-      },
-      "rst_1": {
-        "ports": [
-          "rst",
-          "util_vector_logic_0/Op1"
         ]
       },
       "sample_1": {
@@ -988,19 +872,19 @@
       "transmitter_state_state_out": {
         "ports": [
           "transmitter_state/state_out",
-          "state_out_0",
+          "state_out",
           "MUX_control/sel",
           "MUX_octets/sel"
         ]
       },
       "util_vector_logic_0_Res": {
         "ports": [
-          "util_vector_logic_0/Res",
-          "sync_decoder/rst",
+          "rst",
           "single_ADC_frame_map/rst",
           "encoder_wrapper/rst",
           "transmitter_state/rst",
-          "local_clock_generator/rst"
+          "local_clock_generator/rst",
+          "sync_decoder/rst"
         ]
       }
     },

@@ -6,8 +6,8 @@
    "Color Coded_ScaleFactor":"1.07323",
    "Color Coded_TopLeft":"-132,-399",
    "Default View_Layers":"/local_clock_generator_frame_clk:true|/clock_generator_0_device_clk:true|/source_clk_1:true|",
-   "Default View_ScaleFactor":"0.884522",
-   "Default View_TopLeft":"-305,-163",
+   "Default View_ScaleFactor":"1.16752",
+   "Default View_TopLeft":"-449,-12",
    "Display-PortTypeClock":"true",
    "Display-PortTypeOthers":"true",
    "ExpandedHierarchyInLayout":"",
@@ -28,75 +28,71 @@ rst with clock generator",
    "font_comment_0":"6",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port CLK_IN1_D -pg 1 -lvl 0 -x -10 -y 120 -defaultsOSRD
-preplace port port-id_SYNC -pg 1 -lvl 0 -x -10 -y 380 -defaultsOSRD
-preplace port port-id_scramble_enable -pg 1 -lvl 0 -x -10 -y 480 -defaultsOSRD
-preplace port port-id_rst -pg 1 -lvl 0 -x -10 -y 450 -defaultsOSRD
-preplace port port-id_serial_data -pg 1 -lvl 7 -x 1970 -y 110 -defaultsOSRD
-preplace port port-id_SYSREF -pg 1 -lvl 0 -x -10 -y 180 -defaultsOSRD
-preplace port port-id_test_enable -pg 1 -lvl 0 -x -10 -y 890 -defaultsOSRD
-preplace portBus sample -pg 1 -lvl 0 -x -10 -y 510 -defaultsOSRD
-preplace portBus state_out_0 -pg 1 -lvl 7 -x 1970 -y 450 -defaultsOSRD
-preplace inst local_clock_generator -pg 1 -lvl 2 -x 570 -y 160 -defaultsOSRD
-preplace inst scrambler -pg 1 -lvl 2 -x 570 -y 690 -defaultsOSRD
-preplace inst transmitter_state -pg 1 -lvl 2 -x 570 -y 390 -defaultsOSRD
-preplace inst ILAS_generator -pg 1 -lvl 3 -x 950 -y 380 -defaultsOSRD
-preplace inst CGS_Generator -pg 1 -lvl 3 -x 950 -y 240 -defaultsOSRD
-preplace inst MUX_control -pg 1 -lvl 4 -x 1250 -y 540 -defaultsOSRD
-preplace inst MUX_octets -pg 1 -lvl 4 -x 1250 -y 360 -defaultsOSRD
-preplace inst encoder_wrapper -pg 1 -lvl 5 -x 1500 -y 200 -defaultsOSRD
-preplace inst single_ADC_frame_map -pg 1 -lvl 1 -x 200 -y 700 -defaultsOSRD
-preplace inst sync_decoder -pg 1 -lvl 1 -x 200 -y 360 -defaultsOSRD
-preplace inst serializer -pg 1 -lvl 6 -x 1800 -y 110 -defaultsOSRD
-preplace inst ADC_pattern_generator -pg 1 -lvl 1 -x 200 -y 830 -defaultsOSRD
-preplace inst alignment_substitutution -pg 1 -lvl 3 -x 950 -y 540 -defaultsOSRD
-preplace inst MUX_2x1_0 -pg 1 -lvl 2 -x 570 -y 830 -defaultsOSRD
-preplace inst clk_wiz -pg 1 -lvl 1 -x 200 -y 120 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 200 -y 570 -defaultsOSRD
-preplace netloc ADC_pattern_generator_sample 1 1 1 N 830
-preplace netloc CGS_Generator_0_octet_out 1 3 1 1150 220n
-preplace netloc CGS_Generator_CGS_complete 1 1 3 420 10 NJ 10 1110
-preplace netloc CGS_Generator_control 1 3 1 1130 240n
-preplace netloc ILAS_generator_ILA_last 1 1 3 410 620 770J 640 1100
-preplace netloc ILAS_generator_control 1 3 1 1120 380n
-preplace netloc ILAS_generator_octet_out 1 3 1 1110 350n
-preplace netloc MUX_2x1_0_C 1 0 3 50 470 380J 530 730
-preplace netloc MUX_control_D 1 4 1 1360 240n
-preplace netloc MUX_octets_D 1 4 1 1350 220n
-preplace netloc SYNC_1 1 0 1 NJ 380
-preplace netloc SYSREF_0_1 1 0 2 NJ 180 NJ
-preplace netloc alignment_substituti_0_control 1 3 1 N 550
-preplace netloc alignment_substituti_0_octet_out 1 3 1 1110 370n
-preplace netloc clk_wiz_0_clk_out1 1 1 1 390 120n
-preplace netloc encoder_wrapper_0_symbol 1 5 1 1640 120n
-preplace netloc local_clock_generator_bit_clk 1 2 4 750J 100 NJ 100 NJ 100 N
-preplace netloc local_clock_generator_character_clk 1 0 5 40 460 390 510 760J 140 NJ 140 1360
-preplace netloc local_clock_generator_frame_clk 1 0 3 50 20 NJ 20 730
-preplace netloc local_clock_generator_frame_end 1 2 1 790 190n
-preplace netloc local_clock_generator_multiframe_end 1 2 1 750 230n
-preplace netloc local_clock_generator_sample_clk 1 0 3 20 500 N 500 720J
-preplace netloc rst_1 1 0 1 10 450n
-preplace netloc sample_1 1 0 2 NJ 510 350
-preplace netloc scramble_enable_1 1 0 3 NJ 480 360 540 N
-preplace netloc scrambler_octet_out 1 2 1 800 520n
-preplace netloc sel_0_1 1 0 2 NJ 890 400J
-preplace netloc serializer_0_serial_data 1 6 1 N 110
-preplace netloc single_ADC_frame_map_0_octet 1 1 1 N 700
-preplace netloc sync_decoder_0_sync_request 1 1 1 N 360
-preplace netloc transmitter_state_0_enable_ILAS 1 2 1 N 390
-preplace netloc transmitter_state_enlable_CGS 1 2 1 730 250n
-preplace netloc transmitter_state_state_out 1 2 5 770J 160 1140J 450 NJ 450 NJ 450 NJ
-preplace netloc util_vector_logic_0_Res 1 0 5 30 440 370 520 780 150 N 150 1350
-preplace netloc local_clock_generator_multiframe_start 1 1 2 400 30 740
-preplace netloc CLK_IN1_D_0_1 1 0 1 N 120
+preplace port port-id_SYNC -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
+preplace port port-id_scramble_enable -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x -10 -y 420 -defaultsOSRD
+preplace port port-id_serial_data -pg 1 -lvl 7 -x 1940 -y 150 -defaultsOSRD
+preplace port port-id_SYSREF -pg 1 -lvl 0 -x -10 -y 200 -defaultsOSRD
+preplace port port-id_test_enable -pg 1 -lvl 0 -x -10 -y 840 -defaultsOSRD
+preplace port port-id_device_clk -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace portBus sample -pg 1 -lvl 0 -x -10 -y 550 -defaultsOSRD
+preplace portBus state_out -pg 1 -lvl 7 -x 1940 -y 350 -defaultsOSRD
+preplace inst local_clock_generator -pg 1 -lvl 2 -x 510 -y 180 -defaultsOSRD
+preplace inst scrambler -pg 1 -lvl 2 -x 510 -y 640 -defaultsOSRD
+preplace inst transmitter_state -pg 1 -lvl 2 -x 510 -y 400 -defaultsOSRD
+preplace inst ILAS_generator -pg 1 -lvl 3 -x 890 -y 390 -defaultsOSRD
+preplace inst CGS_Generator -pg 1 -lvl 3 -x 890 -y 250 -defaultsOSRD
+preplace inst MUX_control -pg 1 -lvl 4 -x 1200 -y 550 -defaultsOSRD
+preplace inst MUX_octets -pg 1 -lvl 4 -x 1200 -y 260 -defaultsOSRD
+preplace inst encoder_wrapper -pg 1 -lvl 5 -x 1470 -y 240 -defaultsOSRD
+preplace inst single_ADC_frame_map -pg 1 -lvl 1 -x 170 -y 650 -defaultsOSRD
+preplace inst sync_decoder -pg 1 -lvl 1 -x 170 -y 370 -defaultsOSRD
+preplace inst serializer -pg 1 -lvl 6 -x 1770 -y 150 -defaultsOSRD
+preplace inst ADC_pattern_generator -pg 1 -lvl 1 -x 170 -y 780 -defaultsOSRD
+preplace inst alignment_substitutution -pg 1 -lvl 3 -x 890 -y 550 -defaultsOSRD
+preplace inst MUX_2x1_0 -pg 1 -lvl 2 -x 510 -y 780 -defaultsOSRD
+preplace netloc ADC_pattern_generator_sample 1 1 1 N 780
+preplace netloc CGS_Generator_0_octet_out 1 3 1 N 230
+preplace netloc CGS_Generator_CGS_complete 1 1 3 340 10 NJ 10 1040
+preplace netloc CGS_Generator_control 1 3 1 1060 250n
+preplace netloc ILAS_generator_ILA_last 1 1 3 350 20 NJ 20 1050
+preplace netloc ILAS_generator_control 1 3 1 1080 390n
+preplace netloc ILAS_generator_octet_out 1 3 1 1080 250n
+preplace netloc MUX_2x1_0_C 1 0 3 30 860 NJ 860 670
+preplace netloc MUX_control_D 1 4 1 1310 280n
+preplace netloc MUX_octets_D 1 4 1 N 260
+preplace netloc SYNC_1 1 0 1 NJ 390
+preplace netloc SYSREF_0_1 1 0 2 NJ 200 NJ
+preplace netloc alignment_substituti_0_control 1 3 1 N 560
+preplace netloc alignment_substituti_0_octet_out 1 3 1 1070 270n
+preplace netloc device_clk_0_1 1 0 2 NJ 160 NJ
+preplace netloc encoder_wrapper_0_symbol 1 5 1 1620 160n
+preplace netloc local_clock_generator_bit_clk 1 2 4 700J 140 NJ 140 NJ 140 N
+preplace netloc local_clock_generator_character_clk 1 0 5 30 510 310 510 710J 160 NJ 160 1310
+preplace netloc local_clock_generator_frame_clk 1 0 3 30 30 NJ 30 690
+preplace netloc local_clock_generator_frame_end 1 2 1 730 210n
+preplace netloc local_clock_generator_multiframe_end 1 2 1 700 250n
+preplace netloc local_clock_generator_multiframe_start 1 1 2 330 50 670
+preplace netloc local_clock_generator_sample_clk 1 0 3 20 530 N 530 680J
+preplace netloc sample_1 1 0 2 NJ 550 310
+preplace netloc scramble_enable_1 1 0 3 NJ 520 350 550 N
+preplace netloc scrambler_octet_out 1 2 1 740 530n
+preplace netloc sel_0_1 1 0 2 NJ 840 330J
+preplace netloc serializer_0_serial_data 1 6 1 N 150
+preplace netloc single_ADC_frame_map_0_octet 1 1 1 N 650
+preplace netloc sync_decoder_0_sync_request 1 1 1 N 370
+preplace netloc transmitter_state_0_enable_ILAS 1 2 1 N 400
+preplace netloc transmitter_state_enlable_CGS 1 2 1 690 260n
+preplace netloc transmitter_state_state_out 1 2 5 720J 170 1090J 350 NJ 350 NJ 350 NJ
+preplace netloc util_vector_logic_0_Res 1 0 5 10 290 320 40 N 40 N 40 1320
 preplace cgraphic comment_0 place top 85 -106 textcolor 4 linecolor 3 linewidth 2
-levelinfo -pg 1 -10 200 570 950 1250 1500 1800 1970
-pagesize -pg 1 -db -bbox -sgen -170 0 2140 910
+levelinfo -pg 1 -10 170 510 890 1200 1470 1770 1940
+pagesize -pg 1 -db -bbox -sgen -170 0 2090 870
 "
 }
 {
-   """""""""""""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""""""""""":"2",
-   """""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""""""""""":"1"
+   """"""""""""""""""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""""""""""""""":"2",
+   """"""""""""""""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""""""""""""":"1"
 }
 {
    "/comment_0":"comment_0"
