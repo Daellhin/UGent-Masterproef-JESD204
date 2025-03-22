@@ -65,6 +65,6 @@ begin
     frame_clk <= '1' when frame_clk_counter < (F*8)/2 else '0';
     LMF_clk <= '1' when LMF_clk_counter < (K*F*8)/2 else '0';
     frame_end <= '1' when frame_clk_counter = (F*8)-1 else '0';
-    multiframe_start <= '1' when LMF_clk_counter = 0 else '0';
+    multiframe_start <= '1' when LMF_clk_counter < 9 else '0';
     multiframe_end <= '1' when LMF_clk_counter > (K*F*8)-9 else '0';
 end Behavioral;

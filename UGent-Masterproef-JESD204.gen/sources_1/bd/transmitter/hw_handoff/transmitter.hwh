@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Mar 22 11:50:12 2025" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Mar 22 12:14:43 2025" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="kintexuplus" DEVICE="xcau15p" NAME="transmitter" PACKAGE="ffvb676" SPEEDGRADE="-2"/>
 
@@ -24,8 +24,8 @@
         <CONNECTION INSTANCE="single_ADC_frame_map" PORT="rst"/>
         <CONNECTION INSTANCE="encoder_wrapper" PORT="rst"/>
         <CONNECTION INSTANCE="transmitter_state" PORT="rst"/>
-        <CONNECTION INSTANCE="local_clock_generator" PORT="rst"/>
         <CONNECTION INSTANCE="sync_decoder" PORT="rst"/>
+        <CONNECTION INSTANCE="local_clock_generator" PORT="rst"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="11" NAME="sample" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_sample">

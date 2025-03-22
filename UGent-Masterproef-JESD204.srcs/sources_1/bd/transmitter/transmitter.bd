@@ -883,8 +883,8 @@
           "single_ADC_frame_map/rst",
           "encoder_wrapper/rst",
           "transmitter_state/rst",
-          "local_clock_generator/rst",
-          "sync_decoder/rst"
+          "sync_decoder/rst",
+          "local_clock_generator/rst"
         ]
       }
     },

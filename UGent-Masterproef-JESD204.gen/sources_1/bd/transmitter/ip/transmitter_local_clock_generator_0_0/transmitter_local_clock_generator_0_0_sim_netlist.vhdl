@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Fri Mar 21 12:28:00 2025
+-- Date        : Sat Mar 22 12:15:20 2025
 -- Host        : G16 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/lorin/git/UGent-Masterproef-JESD204/UGent-Masterproef-JESD204.gen/sources_1/bd/transmitter/ip/transmitter_local_clock_generator_0_0/transmitter_local_clock_generator_0_0_sim_netlist.vhdl
@@ -21,8 +21,8 @@ entity transmitter_local_clock_generator_0_0_local_clock_generator is
     frame_clk : out STD_LOGIC;
     frame_end : out STD_LOGIC;
     character_clk : out STD_LOGIC;
-    LMF_clk : out STD_LOGIC;
     multiframe_start : out STD_LOGIC;
+    LMF_clk : out STD_LOGIC;
     multiframe_end : out STD_LOGIC;
     SYSREF : in STD_LOGIC;
     device_clk : in STD_LOGIC;
@@ -56,16 +56,16 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0_local_clock_gene
   signal sample_clk_counter : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal sample_clk_counter1 : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of LMF_clk_INST_0 : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of LMF_clk_INST_0 : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \LMF_clk_counter[0]_i_1\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \LMF_clk_counter[1]_i_1\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \LMF_clk_counter[2]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[3]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[4]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[5]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[6]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[3]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[4]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[5]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[6]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \LMF_clk_counter[7]_i_2\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \character_clk_counter[1]_i_1\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of \character_clk_counter[2]_i_1\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of frame_clk0 : label is "soft_lutpair1";
@@ -74,12 +74,12 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0_local_clock_gene
   attribute SOFT_HLUTNM of \frame_clk_counter[3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \frame_clk_counter[4]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \frame_end__0\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of multiframe_end_INST_0 : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of multiframe_start_INST_0_i_1 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of multiframe_end_INST_0 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of multiframe_start_INST_0 : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of sample_clk0 : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \sample_clk_counter[1]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \sample_clk_counter[2]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \sample_clk_counter[3]_i_2\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \sample_clk_counter[2]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \sample_clk_counter[3]_i_2\ : label is "soft_lutpair6";
 begin
 LMF_clk_INST_0: unisim.vcomponents.LUT5
     generic map(
@@ -496,13 +496,13 @@ multiframe_end_INST_0: unisim.vcomponents.LUT5
     );
 multiframe_start_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00000001"
+      INIT => X"00005557"
     )
         port map (
-      I0 => LMF_clk_counter(5),
-      I1 => LMF_clk_counter(4),
-      I2 => LMF_clk_counter(6),
-      I3 => LMF_clk_counter(7),
+      I0 => LMF_clk_counter(3),
+      I1 => LMF_clk_counter(2),
+      I2 => LMF_clk_counter(1),
+      I3 => LMF_clk_counter(0),
       I4 => multiframe_start_INST_0_i_1_n_0,
       O => multiframe_start
     );
@@ -511,10 +511,10 @@ multiframe_start_INST_0_i_1: unisim.vcomponents.LUT4
       INIT => X"FFFE"
     )
         port map (
-      I0 => LMF_clk_counter(2),
-      I1 => LMF_clk_counter(3),
-      I2 => LMF_clk_counter(0),
-      I3 => LMF_clk_counter(1),
+      I0 => LMF_clk_counter(5),
+      I1 => LMF_clk_counter(4),
+      I2 => LMF_clk_counter(7),
+      I3 => LMF_clk_counter(6),
       O => multiframe_start_INST_0_i_1_n_0
     );
 sample_clk0: unisim.vcomponents.LUT3
@@ -662,7 +662,7 @@ architecture STRUCTURE of transmitter_local_clock_generator_0_0 is
   attribute x_interface_info of character_clk : signal is "xilinx.com:signal:clock:1.0 character_clk CLK";
   attribute x_interface_parameter of character_clk : signal is "XIL_INTERFACENAME character_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_character_clk, INSERT_VIP 0";
   attribute x_interface_info of device_clk : signal is "xilinx.com:signal:clock:1.0 device_clk CLK";
-  attribute x_interface_parameter of device_clk : signal is "XIL_INTERFACENAME device_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, INSERT_VIP 0";
+  attribute x_interface_parameter of device_clk : signal is "XIL_INTERFACENAME device_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_device_clk, INSERT_VIP 0";
   attribute x_interface_info of frame_clk : signal is "xilinx.com:signal:clock:1.0 frame_clk CLK";
   attribute x_interface_parameter of frame_clk : signal is "XIL_INTERFACENAME frame_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN transmitter_local_clock_generator_0_0_frame_clk, INSERT_VIP 0";
   attribute x_interface_info of rst : signal is "xilinx.com:signal:reset:1.0 rst RST";
